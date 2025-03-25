@@ -61,6 +61,7 @@ const Navbar = () => {
           <nav className="hidden md:flex items-center gap-8">
             <NavLink to="/about">About Us</NavLink>
             <NavLink to="/registration">Registration</NavLink>
+            <NavLink to="/direct-primary-care">Direct Primary Care</NavLink>
             <NavLink to="/medical-cannabis">Medical Cannabis</NavLink>
             <NavLink to="/community">Community Initiatives</NavLink>
           </nav>
