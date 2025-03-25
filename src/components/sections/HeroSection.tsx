@@ -3,6 +3,38 @@ import React from "react";
 import { Link } from "react-router-dom";
 import FadeIn from "../animations/FadeIn";
 import ButtonCustom from "../ui/ButtonCustom";
+import { 
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselPrevious,
+  CarouselNext
+} from "../ui/carousel";
+
+// News items for the carousel
+const newsItems = [
+  {
+    id: 1,
+    title: "New Telehealth Services Available",
+    description: "Connect with our healthcare professionals from the comfort of your home.",
+    image: "/lovable-uploads/53a93b24-c109-459a-92d6-3159910c2b00.png",
+    link: "/services/telehealth"
+  },
+  {
+    id: 2,
+    title: "COVID-19 Vaccination Updates",
+    description: "Stay informed about our vaccination programs and eligibility.",
+    image: "https://images.unsplash.com/photo-1584634731131-8dd47f35a3a1?q=80&w=1000&auto=format&fit=crop",
+    link: "/resources/covid"
+  },
+  {
+    id: 3,
+    title: "Mental Health Awareness Month",
+    description: "Join our weekly support groups and educational sessions.",
+    image: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=1000&auto=format&fit=crop",
+    link: "/services/mental-health"
+  }
+];
 
 const HeroSection = () => {
   return (
@@ -46,14 +78,37 @@ const HeroSection = () => {
             delay={200}
             className="relative order-first md:order-last"
           >
-            <div className="aspect-[4/3] relative rounded-2xl overflow-hidden shadow-2xl animate-pulse-subtle">
-              <img 
-                src="/lovable-uploads/53a93b24-c109-459a-92d6-3159910c2b00.png" 
-                alt="Healthcare Professionals"
-                className="object-cover w-full h-full"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
-            </div>
+            <Carousel className="w-full max-w-xl mx-auto">
+              <CarouselContent>
+                {newsItems.map((item) => (
+                  <CarouselItem key={item.id}>
+                    <div className="aspect-[4/3] relative rounded-2xl overflow-hidden shadow-2xl">
+                      <img 
+                        src={item.image} 
+                        alt={item.title}
+                        className="object-cover w-full h-full"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                      <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
+                        <h3 className="text-xl font-bold mb-2">{item.title}</h3>
+                        <p className="mb-4 text-sm text-gray-200">{item.description}</p>
+                        <Link 
+                          to={item.link}
+                          className="inline-flex items-center text-sm font-medium text-white hover:text-genesis-purple transition-colors"
+                        >
+                          Learn More
+                          <svg xmlns="http://www.w3.org/2000/svg" className="ml-2 h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+                            <path fillRule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
+                          </svg>
+                        </Link>
+                      </div>
+                    </div>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+              <CarouselPrevious className="left-2" />
+              <CarouselNext className="right-2" />
+            </Carousel>
           </FadeIn>
         </div>
         
