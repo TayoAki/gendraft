@@ -1,3 +1,4 @@
+
 import React from "react";
 import { Link } from "react-router-dom";
 import FadeIn from "../animations/FadeIn";
@@ -45,7 +46,7 @@ const HeroSection = () => {
     <section className="pt-32 pb-20 relative overflow-hidden bg-gradient-to-b from-white to-gray-50">
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute -top-40 -right-40 w-80 h-80 bg-genesis-purple/5 rounded-full blur-3xl"></div>
-        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-genesis-blue/5 rounded-full blur-3xl"></div>
+        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-genesis-lightPurple/5 rounded-full blur-3xl"></div>
       </div>
       
       <div className="container-section relative">
@@ -82,7 +83,7 @@ const HeroSection = () => {
             delay={200}
             className="relative order-first md:order-last"
           >
-            <div className="p-1 rounded-2xl bg-gradient-to-br from-genesis-purple/20 to-genesis-blue/20">
+            <div className="p-1 rounded-2xl bg-gradient-to-br from-genesis-purple/20 to-genesis-lightPurple/20">
               <Carousel className="w-full max-w-xl mx-auto rounded-xl overflow-hidden">
                 <CarouselContent>
                   {announcements.map((item) => (

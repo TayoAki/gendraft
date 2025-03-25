@@ -1,4 +1,3 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
 @tailwind base;
@@ -25,7 +24,7 @@
     --muted: 240 4.8% 95.9%;
     --muted-foreground: 240 3.8% 46.1%;
 
-    --accent: 210 50% 52%;
+    --accent: 262 50% 75%;
     --accent-foreground: 0 0% 98%;
 
     --destructive: 0 84.2% 60.2%;
@@ -57,7 +56,7 @@
     --muted: 240 3.7% 15.9%;
     --muted-foreground: 240 5% 64.9%;
 
-    --accent: 210 50% 52%;
+    --accent: 262 50% 75%;
     --accent-foreground: 0 0% 98%;
 
     --destructive: 0 62.8% 30.6%;
@@ -128,5 +127,5 @@
 }
 
 .text-gradient {
-  @apply bg-gradient-to-r from-genesis-purple to-genesis-blue bg-clip-text text-transparent;
+  @apply bg-gradient-to-r from-genesis-purple to-genesis-lightPurple bg-clip-text text-transparent;
 }

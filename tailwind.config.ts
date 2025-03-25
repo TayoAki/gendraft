@@ -60,8 +60,8 @@ export default {
         genesis: {
           purple: "#4f4183",
           lightPurple: "#6a59a5",
-          blue: "#3a97d4",
-          lightBlue: "#62b5e6",
+          blue: "#6a59a5", // Changed from blue to light purple
+          lightBlue: "#9b87f5", // Changed from light blue to vibrant purple
         },
       },
       borderRadius: {
