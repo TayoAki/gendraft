@@ -1,122 +1,194 @@
-import React, { useState, useEffect } from "react";
+
+import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, Phone } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Phone, Menu, X, Facebook, Instagram } from "lucide-react";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 const Navbar = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const { pathname } = useLocation();
-
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
-
-  const closeMenu = () => {
-    setIsMenuOpen(false);
-  };
+  const [scrolled, setScrolled] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const isMobile = useIsMobile();
+  const location = useLocation();
 
   useEffect(() => {
-    // Close the menu when the route changes
-    closeMenu();
-  }, [pathname]);
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 10);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  // Close mobile menu when navigating to a new page
+  useEffect(() => {
+    setMobileMenuOpen(false);
+  }, [location.pathname]);
 
   return (
-    
-      <div className="fixed top-0 left-0 right-0 bg-white/80 backdrop-blur-md shadow-sm z-50">
-        <div className="container-section">
-          <div className="flex items-center justify-between h-20">
-            {/* Logo */}
-            <Link to="/" className="flex items-center">
-              <img src="/lovable-uploads/53a93b24-c109-459a-92d6-3159910c2b00.png" alt="Genesis Healthcare Logo" className="h-10" />
-            </Link>
-            
-            {/* Mobile Menu Button */}
-            <button
-              onClick={toggleMenu}
-              className="md:hidden flex items-center"
-              aria-label="Toggle Menu"
+    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${mobileMenuOpen ? 'h-screen md:h-auto' : ''}`}>
+      {/* Top Bar */}
+      <div className="bg-genesis-purple text-white py-2">
+        <div className="container-section flex justify-between items-center">
+          <a 
+            href="tel:770-434-1904" 
+            className="flex items-center gap-2 hover:text-genesis-lightBlue transition-colors duration-200"
+          >
+            <Phone size={16} strokeWidth={2} />
+            <span className="text-sm">770-434-1904</span>
+          </a>
+          <div className="flex items-center gap-4">
+            <a href="#" className="text-white hover:text-genesis-lightBlue transition-colors duration-200" aria-label="Facebook">
+              <Facebook size={18} />
+            </a>
+            <a href="#" className="text-white hover:text-genesis-lightBlue transition-colors duration-200" aria-label="Instagram">
+              <Instagram size={18} />
+            </a>
+          </div>
+        </div>
+      </div>
+
+      {/* Main Navbar */}
+      <div 
+        className={`bg-white transition-all duration-300 ${
+          scrolled ? "shadow-md bg-white/95 backdrop-blur-md" : ""
+        }`}
+      >
+        <div className="container-section flex justify-between items-center py-3">
+          <Link to="/" className="flex items-center gap-2 z-20">
+            <div className="w-10 h-10 md:w-12 md:h-12 relative flex-shrink-0">
+              <svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
+                <circle cx="30" cy="30" r="28" fill="#4f4183" />
+                <path d="M30,15 L30,45 M20,25 L40,25 M20,35 L40,35" stroke="white" strokeWidth="3" strokeLinecap="round" />
+              </svg>
+            </div>
+            <div className="flex flex-col">
+              <span className="text-genesis-purple font-bold text-lg md:text-xl leading-tight">GENESIS</span>
+              <span className="text-gray-500 text-[10px] md:text-xs leading-tight">HEALTHCARE ASSOCIATES</span>
+            </div>
+          </Link>
+
+          {/* Desktop Navigation */}
+          <nav className="hidden md:flex items-center gap-6 lg:gap-8">
+            <NavLink to="/about">About Us</NavLink>
+            <NavLink to="/registration">Registration</NavLink>
+            <NavLink to="/direct-primary-care">Direct Primary Care</NavLink>
+            <NavLink to="/medical-cannabis">Medical Cannabis</NavLink>
+            <NavLink to="/community">Community</NavLink>
+          </nav>
+
+          <div className="hidden md:flex items-center gap-3">
+            <Link 
+              to="/nursing"
+              className="py-2 px-3 lg:px-4 text-sm bg-genesis-purple text-white rounded-md transition-all hover:bg-genesis-lightPurple"
             >
-              {isMenuOpen ? (
-                <X className="h-6 w-6 text-genesis-purple" />
-              ) : (
-                <Menu className="h-6 w-6 text-genesis-purple" />
-              )}
-            </button>
+              Nursing Clinicals
+            </Link>
+            <Link 
+              to="/payments"
+              className="py-2 px-3 lg:px-4 text-sm border border-genesis-purple text-genesis-purple rounded-md transition-all hover:bg-genesis-purple/5"
+            >
+              Payments
+            </Link>
+          </div>
+
+          {/* Mobile Menu Button */}
+          <button 
+            className="md:hidden text-genesis-purple z-20" 
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
+          >
+            {mobileMenuOpen ? (
+              <X size={24} />
+            ) : (
+              <Menu size={24} />
+            )}
+          </button>
+        </div>
+      </div>
+
+      {/* Mobile Menu Overlay */}
+      {isMobile && (
+        <div 
+          className={`fixed inset-0 bg-white z-10 transition-transform duration-300 pt-24 px-6 ${
+            mobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
+          }`}
+        >
+          <div className="flex flex-col h-full">
+            <nav className="flex flex-col gap-6 mb-8">
+              <MobileNavLink to="/" active={location.pathname === "/"}>Home</MobileNavLink>
+              <MobileNavLink to="/about" active={location.pathname === "/about"}>About Us</MobileNavLink>
+              <MobileNavLink to="/registration" active={location.pathname === "/registration"}>Registration</MobileNavLink>
+              <MobileNavLink to="/direct-primary-care" active={location.pathname === "/direct-primary-care"}>Direct Primary Care</MobileNavLink>
+              <MobileNavLink to="/medical-cannabis" active={location.pathname === "/medical-cannabis"}>Medical Cannabis</MobileNavLink>
+              <MobileNavLink to="/community" active={location.pathname === "/community"}>Community Initiatives</MobileNavLink>
+            </nav>
             
-            {/* Desktop Navigation */}
-            <div className="hidden md:flex items-center space-x-1">
-              <nav className="hidden md:flex space-x-1">
-                <Link to="/" className={`px-3 py-2 rounded-md text-sm font-medium ${pathname === '/' ? 'text-genesis-purple bg-genesis-purple/10' : 'text-gray-700 hover:text-genesis-purple hover:bg-genesis-purple/5'}`}>
-                  Home
-                </Link>
-                <Link to="/about-us" className={`px-3 py-2 rounded-md text-sm font-medium ${pathname === '/about-us' ? 'text-genesis-purple bg-genesis-purple/10' : 'text-gray-700 hover:text-genesis-purple hover:bg-genesis-purple/5'}`}>
-                  About Us
-                </Link>
-                <Link to="/direct-primary-care" className={`px-3 py-2 rounded-md text-sm font-medium ${pathname === '/direct-primary-care' ? 'text-genesis-purple bg-genesis-purple/10' : 'text-gray-700 hover:text-genesis-purple hover:bg-genesis-purple/5'}`}>
-                  Direct Primary Care
-                </Link>
-              </nav>
+            <div className="flex flex-col gap-3 mt-auto mb-10">
+              <Link 
+                to="/nursing"
+                className="py-3 bg-genesis-purple text-white rounded-md transition-all hover:bg-genesis-lightPurple text-center"
+              >
+                Advance Nursing Clinicals
+              </Link>
+              <Link 
+                to="/payments"
+                className="py-3 border border-genesis-purple text-genesis-purple rounded-md transition-all hover:bg-genesis-purple/5 text-center"
+              >
+                Payments
+              </Link>
               
-              <div className="hidden md:flex items-center pl-4 ml-4 border-l border-gray-200">
-                <Button asChild variant="default" className="mr-2 bg-genesis-purple hover:bg-genesis-lightPurple">
-                  <a href="tel:+16785551234">
-                    <Phone className="h-4 w-4 mr-2" />
-                    Contact Us
-                  </a>
-                </Button>
+              <div className="flex items-center justify-center gap-4 mt-6">
+                <a 
+                  href="tel:770-434-1904" 
+                  className="flex items-center gap-2 text-genesis-purple hover:text-genesis-lightPurple transition-colors duration-200"
+                >
+                  <Phone size={18} />
+                  <span>770-434-1904</span>
+                </a>
+              </div>
+              
+              <div className="flex items-center justify-center gap-4 mt-4">
+                <a href="#" className="text-genesis-purple hover:text-genesis-lightPurple transition-colors duration-200" aria-label="Facebook">
+                  <Facebook size={24} />
+                </a>
+                <a href="#" className="text-genesis-purple hover:text-genesis-lightPurple transition-colors duration-200" aria-label="Instagram">
+                  <Instagram size={24} />
+                </a>
               </div>
             </div>
           </div>
         </div>
-        
-        {/* Mobile Navigation */}
-        <div
-          className={`md:hidden ${
-            isMenuOpen ? 'block' : 'hidden'
-          } bg-white border-t border-gray-200`}
-        >
-          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-            <Link
-              to="/"
-              className={`block px-3 py-2 rounded-md text-base font-medium ${
-                pathname === '/' ? 'text-genesis-purple bg-genesis-purple/10' : 'text-gray-700 hover:text-genesis-purple hover:bg-genesis-purple/5'
-              }`}
-              onClick={closeMenu}
-            >
-              Home
-            </Link>
-            <Link
-              to="/about-us"
-              className={`block px-3 py-2 rounded-md text-base font-medium ${
-                pathname === '/about-us' ? 'text-genesis-purple bg-genesis-purple/10' : 'text-gray-700 hover:text-genesis-purple hover:bg-genesis-purple/5'
-              }`}
-              onClick={closeMenu}
-            >
-              About Us
-            </Link>
-            <Link
-              to="/direct-primary-care"
-              className={`block px-3 py-2 rounded-md text-base font-medium ${
-                pathname === '/direct-primary-care' ? 'text-genesis-purple bg-genesis-purple/10' : 'text-gray-700 hover:text-genesis-purple hover:bg-genesis-purple/5'
-              }`}
-              onClick={closeMenu}
-            >
-              Direct Primary Care
-            </Link>
-          </div>
-          <div className="pt-4 pb-3 border-t border-gray-200">
-            <div className="flex items-center px-5">
-              <Button asChild variant="default" className="w-full bg-genesis-purple hover:bg-genesis-lightPurple">
-                <a href="tel:+16785551234" className="flex items-center justify-center" onClick={closeMenu}>
-                  <Phone className="h-4 w-4 mr-2" />
-                  Contact Us
-                </a>
-              </Button>
-            </div>
-          </div>
-        </div>
-      </div>
-    
+      )}
+    </header>
+  );
+};
+
+const NavLink = ({ to, children }: { to: string; children: React.ReactNode }) => {
+  const location = useLocation();
+  const isActive = location.pathname === to;
+  
+  return (
+    <Link
+      to={to}
+      className={`relative text-gray-700 hover:text-genesis-purple transition-colors duration-200 font-medium text-sm lg:text-base 
+        ${isActive ? 'text-genesis-purple' : ''}
+        after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-genesis-purple after:origin-center 
+        ${isActive ? 'after:scale-x-100' : 'after:scale-x-0'} 
+        hover:after:scale-x-100 after:transition-transform`}
+    >
+      {children}
+    </Link>
+  );
+};
+
+const MobileNavLink = ({ to, children, active }: { to: string; children: React.ReactNode; active: boolean }) => {
+  return (
+    <Link
+      to={to}
+      className={`text-xl ${active ? 'text-genesis-purple font-medium' : 'text-gray-700'} hover:text-genesis-purple transition-colors`}
+    >
+      {children}
+    </Link>
   );
 };
 
