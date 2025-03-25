@@ -10,6 +10,8 @@ import {
   CarouselPrevious,
   CarouselNext
 } from "../ui/carousel";
+import { Card, CardContent } from "../ui/card";
+import { ArrowRight, Calendar, Clock } from "lucide-react";
 
 // News items for the carousel
 const newsItems = [
@@ -18,6 +20,8 @@ const newsItems = [
     title: "New Telehealth Services Available",
     description: "Connect with our healthcare professionals from the comfort of your home.",
     image: "/lovable-uploads/53a93b24-c109-459a-92d6-3159910c2b00.png",
+    date: "May 15, 2023",
+    readTime: "3 min read",
     link: "/services/telehealth"
   },
   {
@@ -25,6 +29,8 @@ const newsItems = [
     title: "COVID-19 Vaccination Updates",
     description: "Stay informed about our vaccination programs and eligibility.",
     image: "https://images.unsplash.com/photo-1584634731131-8dd47f35a3a1?q=80&w=1000&auto=format&fit=crop",
+    date: "June 2, 2023",
+    readTime: "4 min read",
     link: "/resources/covid"
   },
   {
@@ -32,6 +38,8 @@ const newsItems = [
     title: "Mental Health Awareness Month",
     description: "Join our weekly support groups and educational sessions.",
     image: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=1000&auto=format&fit=crop",
+    date: "April 28, 2023",
+    readTime: "5 min read",
     link: "/services/mental-health"
   }
 ];
@@ -48,7 +56,7 @@ const HeroSection = () => {
         <div className="grid md:grid-cols-2 gap-8 items-center">
           <FadeIn direction="left" className="space-y-6">
             <div className="inline-block rounded-full bg-genesis-purple/10 px-3 py-1 text-sm font-medium text-genesis-purple">
-              Professional Healthcare Services
+              Excellence in Healthcare
             </div>
             <h1 className="font-bold">
               <span className="text-gray-900">GENESIS</span>
@@ -56,18 +64,18 @@ const HeroSection = () => {
               <span className="text-gradient">HEALTHCARE</span>
             </h1>
             <p className="text-lg text-gray-600 max-w-lg">
-              Making each patient an integral part of their own healthcare.
-              Take charge of your health today!
+              Professional healthcare services designed around your needs.
+              Experience personalized care with our team of experts.
             </p>
             <div className="flex flex-wrap gap-4">
               <Link to="/portal">
                 <ButtonCustom size="lg">
-                  Sign In To My Health Portal
+                  Patient Portal Access
                 </ButtonCustom>
               </Link>
               <Link to="/registration">
                 <ButtonCustom variant="outline" size="lg">
-                  Register Now
+                  New Patient Registration
                 </ButtonCustom>
               </Link>
             </div>
@@ -78,37 +86,51 @@ const HeroSection = () => {
             delay={200}
             className="relative order-first md:order-last"
           >
-            <Carousel className="w-full max-w-xl mx-auto">
-              <CarouselContent>
-                {newsItems.map((item) => (
-                  <CarouselItem key={item.id}>
-                    <div className="aspect-[4/3] relative rounded-2xl overflow-hidden shadow-2xl">
-                      <img 
-                        src={item.image} 
-                        alt={item.title}
-                        className="object-cover w-full h-full"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
-                      <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
-                        <h3 className="text-xl font-bold mb-2">{item.title}</h3>
-                        <p className="mb-4 text-sm text-gray-200">{item.description}</p>
-                        <Link 
-                          to={item.link}
-                          className="inline-flex items-center text-sm font-medium text-white hover:text-genesis-purple transition-colors"
-                        >
-                          Learn More
-                          <svg xmlns="http://www.w3.org/2000/svg" className="ml-2 h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
-                            <path fillRule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
-                          </svg>
-                        </Link>
-                      </div>
-                    </div>
-                  </CarouselItem>
-                ))}
-              </CarouselContent>
-              <CarouselPrevious className="left-2" />
-              <CarouselNext className="right-2" />
-            </Carousel>
+            <div className="p-1 rounded-2xl bg-gradient-to-br from-genesis-purple/20 to-genesis-blue/20">
+              <Carousel className="w-full max-w-xl mx-auto rounded-xl overflow-hidden">
+                <CarouselContent>
+                  {newsItems.map((item) => (
+                    <CarouselItem key={item.id}>
+                      <Card className="border-0 bg-transparent">
+                        <CardContent className="p-0">
+                          <div className="aspect-[16/9] relative rounded-xl overflow-hidden shadow-lg">
+                            <img 
+                              src={item.image} 
+                              alt={item.title}
+                              className="object-cover w-full h-full transition-transform duration-500 hover:scale-105"
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+                            <div className="absolute top-4 left-4 flex items-center space-x-4">
+                              <div className="flex items-center text-xs text-white/90 bg-black/30 px-2 py-1 rounded-full">
+                                <Calendar className="h-3 w-3 mr-1" />
+                                <span>{item.date}</span>
+                              </div>
+                              <div className="flex items-center text-xs text-white/90 bg-black/30 px-2 py-1 rounded-full">
+                                <Clock className="h-3 w-3 mr-1" />
+                                <span>{item.readTime}</span>
+                              </div>
+                            </div>
+                            <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
+                              <h3 className="text-xl font-bold mb-2 leading-tight">{item.title}</h3>
+                              <p className="mb-4 text-sm text-gray-200 line-clamp-2">{item.description}</p>
+                              <Link 
+                                to={item.link}
+                                className="inline-flex items-center text-sm font-medium text-white bg-genesis-purple/80 hover:bg-genesis-purple transition-colors px-4 py-2 rounded-full"
+                              >
+                                Read Article
+                                <ArrowRight className="ml-2 h-4 w-4" />
+                              </Link>
+                            </div>
+                          </div>
+                        </CardContent>
+                      </Card>
+                    </CarouselItem>
+                  ))}
+                </CarouselContent>
+                <CarouselPrevious className="left-2 bg-white/80 hover:bg-white text-genesis-purple border-none" />
+                <CarouselNext className="right-2 bg-white/80 hover:bg-white text-genesis-purple border-none" />
+              </Carousel>
+            </div>
           </FadeIn>
         </div>
         
