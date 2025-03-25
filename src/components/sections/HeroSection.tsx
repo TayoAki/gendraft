@@ -1,4 +1,3 @@
-
 import React from "react";
 import { Link } from "react-router-dom";
 import FadeIn from "../animations/FadeIn";
@@ -11,35 +10,32 @@ import {
   CarouselNext
 } from "../ui/carousel";
 import { Card, CardContent } from "../ui/card";
-import { ArrowRight, Calendar, Clock } from "lucide-react";
+import { ArrowRight, Bell, Calendar } from "lucide-react";
 
-// News items for the carousel
-const newsItems = [
+// Announcements items for the carousel
+const announcements = [
   {
     id: 1,
-    title: "New Telehealth Services Available",
+    title: "New Telehealth Services",
     description: "Connect with our healthcare professionals from the comfort of your home.",
     image: "/lovable-uploads/53a93b24-c109-459a-92d6-3159910c2b00.png",
     date: "May 15, 2023",
-    readTime: "3 min read",
     link: "/services/telehealth"
   },
   {
     id: 2,
-    title: "COVID-19 Vaccination Updates",
-    description: "Stay informed about our vaccination programs and eligibility.",
+    title: "COVID-19 Vaccination Available",
+    description: "Schedule your vaccination appointment today. Walk-ins also welcome.",
     image: "https://images.unsplash.com/photo-1584634731131-8dd47f35a3a1?q=80&w=1000&auto=format&fit=crop",
     date: "June 2, 2023",
-    readTime: "4 min read",
     link: "/resources/covid"
   },
   {
     id: 3,
-    title: "Mental Health Awareness Month",
-    description: "Join our weekly support groups and educational sessions.",
+    title: "Mental Health Support Groups",
+    description: "Weekly support groups now available. Join us every Wednesday at 6pm.",
     image: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=1000&auto=format&fit=crop",
     date: "April 28, 2023",
-    readTime: "5 min read",
     link: "/services/mental-health"
   }
 ];
@@ -89,7 +85,7 @@ const HeroSection = () => {
             <div className="p-1 rounded-2xl bg-gradient-to-br from-genesis-purple/20 to-genesis-blue/20">
               <Carousel className="w-full max-w-xl mx-auto rounded-xl overflow-hidden">
                 <CarouselContent>
-                  {newsItems.map((item) => (
+                  {announcements.map((item) => (
                     <CarouselItem key={item.id}>
                       <Card className="border-0 bg-transparent">
                         <CardContent className="p-0">
@@ -100,14 +96,14 @@ const HeroSection = () => {
                               className="object-cover w-full h-full transition-transform duration-500 hover:scale-105"
                             />
                             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
-                            <div className="absolute top-4 left-4 flex items-center space-x-4">
+                            <div className="absolute top-4 left-4 flex items-center space-x-2">
+                              <div className="flex items-center text-xs font-medium text-white/90 bg-genesis-purple/80 px-3 py-1 rounded-full">
+                                <Bell className="h-3 w-3 mr-1.5" />
+                                <span>Announcement</span>
+                              </div>
                               <div className="flex items-center text-xs text-white/90 bg-black/30 px-2 py-1 rounded-full">
                                 <Calendar className="h-3 w-3 mr-1" />
                                 <span>{item.date}</span>
-                              </div>
-                              <div className="flex items-center text-xs text-white/90 bg-black/30 px-2 py-1 rounded-full">
-                                <Clock className="h-3 w-3 mr-1" />
-                                <span>{item.readTime}</span>
                               </div>
                             </div>
                             <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
@@ -117,7 +113,7 @@ const HeroSection = () => {
                                 to={item.link}
                                 className="inline-flex items-center text-sm font-medium text-white bg-genesis-purple/80 hover:bg-genesis-purple transition-colors px-4 py-2 rounded-full"
                               >
-                                Read Article
+                                View Details
                                 <ArrowRight className="ml-2 h-4 w-4" />
                               </Link>
                             </div>
