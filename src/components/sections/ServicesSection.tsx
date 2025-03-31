@@ -101,10 +101,10 @@ const serviceFeatures = [
     )
   },
   {
-    title: "Telemedicine",
-    description: "Virtual consultations providing convenient access to healthcare professionals from the comfort of your home.",
+    title: "Direct Primary Care",
+    description: "Membership-based care model offering dedicated provider access, extended appointments, and simplified healthcare without insurance barriers.",
     icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-genesis-purple"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z" /><circle cx="12" cy="13" r="3" /></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-genesis-purple"><path d="M8.8 20v-4.1l1.9.2a2.3 2.3 0 0 0 1.9-1.1l.3-.6" /><path d="M8.8 8.7a4.5 4.5 0 0 1 3.1 2.4l.2.5" /><path d="M7 9H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v4a1 1 0 0 1-1 1h-1Z" /><path d="M16 21h3a1 1 0 0 0 1-1v-4a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v4a1 1 0 0 0 1 1h1Z" /><path d="M16 5h3a1 1 0 0 1 1 1v4a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h1Z" /></svg>
     )
   }
 ];
