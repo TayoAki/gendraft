@@ -1,13 +1,12 @@
-
-import React from "react";
+import React, { useState } from "react";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import FadeIn from "@/components/animations/FadeIn";
 import { 
-  HoverCard,
-  HoverCardTrigger,
-  HoverCardContent 
-} from "@/components/ui/hover-card";
+  Popover,
+  PopoverTrigger,
+  PopoverContent 
+} from "@/components/ui/popover";
 import { User, UserCircle, Award, CalendarDays, MapPin, Phone, AlarmClock, HeartPulse, Activity, Brain, Microscope, Stethoscope } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import ContactSection from "@/components/sections/ContactSection";
@@ -206,6 +205,8 @@ const StaffProfile: React.FC<StaffProfileProps> = ({
   expandedBio,
   imagePath
 }) => {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
     <div className="flex flex-col md:flex-row gap-8 items-start bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-all">
       <div className="w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden flex-shrink-0 mx-auto md:mx-0 border-4 border-genesis-purple/20">
@@ -220,24 +221,26 @@ const StaffProfile: React.FC<StaffProfileProps> = ({
         <h3 className="text-2xl font-bold text-gray-900">{name}</h3>
         <p className="text-genesis-purple font-medium mb-4">{title}</p>
         
-        <HoverCard openDelay={100} closeDelay={200}>
-          <HoverCardTrigger asChild>
-            <div>
-              <p className="text-gray-700">{bio}</p>
-              <div className="flex items-center mt-4 text-sm text-genesis-purple cursor-pointer hover:underline group">
-                <UserCircle className="w-4 h-4 mr-1" />
-                <span>See full bio</span>
-                <span className="ml-1 transition-transform group-hover:translate-x-1">→</span>
-              </div>
-            </div>
-          </HoverCardTrigger>
-          <HoverCardContent className="w-80 md:w-96 p-6 bg-white shadow-xl border border-genesis-purple/10">
+        <p className="text-gray-700">{bio}</p>
+        
+        <Popover open={isOpen} onOpenChange={setIsOpen}>
+          <PopoverTrigger asChild>
+            <button 
+              className="flex items-center mt-4 text-sm text-genesis-purple hover:underline group focus:outline-none focus:ring-2 focus:ring-genesis-purple/40 focus:ring-offset-2 rounded-sm"
+              aria-label={`Read more about ${name}`}
+            >
+              <UserCircle className="w-4 h-4 mr-1" />
+              <span>See full bio</span>
+              <span className={`ml-1 transition-transform duration-300 ${isOpen ? 'rotate-90' : ''}`}>→</span>
+            </button>
+          </PopoverTrigger>
+          <PopoverContent className="w-80 md:w-96 p-6 bg-white shadow-xl border border-genesis-purple/10 max-h-[70vh] overflow-y-auto">
             <div className="space-y-4">
               <div className="flex gap-2 items-center">
                 <Award className="w-5 h-5 text-genesis-purple" />
                 <h4 className="text-lg font-semibold text-genesis-purple">{name}</h4>
               </div>
-              <div className="text-gray-700 space-y-2 whitespace-pre-line text-sm">
+              <div className="text-gray-700 space-y-2 whitespace-pre-line">
                 {expandedBio}
               </div>
               <div className="pt-2 flex gap-2 items-center text-xs text-gray-500 border-t border-gray-100">
@@ -245,8 +248,8 @@ const StaffProfile: React.FC<StaffProfileProps> = ({
                 <span>Genesis Healthcare team member</span>
               </div>
             </div>
-          </HoverCardContent>
-        </HoverCard>
+          </PopoverContent>
+        </Popover>
       </div>
     </div>
   );
