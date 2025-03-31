@@ -1,5 +1,5 @@
 
-import React, { useState } from "react";
+import React from "react";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import FadeIn from "@/components/animations/FadeIn";
@@ -8,8 +8,11 @@ import {
   HoverCardTrigger,
   HoverCardContent 
 } from "@/components/ui/hover-card";
-import { User, UserCircle, Award } from "lucide-react";
+import { User, UserCircle, Award, CalendarDays, MapPin, Phone, AlarmClock, HeartPulse, Activity, Brain, Microscope, Stethoscope } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
+import ContactSection from "@/components/sections/ContactSection";
+import ButtonCustom from "@/components/ui/ButtonCustom";
+import { Link } from "react-router-dom";
 
 const About = () => {
   return (
@@ -27,6 +30,14 @@ const About = () => {
             <FadeIn className="text-center max-w-3xl mx-auto">
               <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">About Genesis</h1>
               <p className="text-xl text-gray-600 mb-8">A high-touch, family-centered healthcare experience.</p>
+              <div className="flex justify-center gap-4 mt-6">
+                <Link to="/registration">
+                  <ButtonCustom>Become a Patient</ButtonCustom>
+                </Link>
+                <Link to="/direct-primary-care">
+                  <ButtonCustom variant="outline">Learn About DPC</ButtonCustom>
+                </Link>
+              </div>
             </FadeIn>
           </div>
         </section>
@@ -45,11 +56,53 @@ const About = () => {
           </div>
         </section>
         
-        {/* Team section */}
+        {/* Medical Services section */}
         <section className="py-16 bg-gray-50">
           <div className="container-section">
             <FadeIn>
-              <h2 className="text-3xl font-bold text-center mb-12">Our Healthcare Team</h2>
+              <h2 className="text-3xl font-bold text-center mb-8">Our Medical Services</h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <ServiceCard 
+                  icon={<HeartPulse className="h-8 w-8 text-genesis-purple" />}
+                  title="Preventive Care"
+                  description="Regular check-ups, vaccinations, and screenings to keep you healthy."
+                />
+                <ServiceCard 
+                  icon={<Activity className="h-8 w-8 text-genesis-purple" />}
+                  title="Chronic Disease Management"
+                  description="Comprehensive care for diabetes, hypertension, and other conditions."
+                />
+                <ServiceCard 
+                  icon={<Brain className="h-8 w-8 text-genesis-purple" />}
+                  title="Mental Health"
+                  description="Support for anxiety, depression, and other mental health concerns."
+                />
+                <ServiceCard 
+                  icon={<Microscope className="h-8 w-8 text-genesis-purple" />}
+                  title="Lab Services"
+                  description="On-site laboratory testing for faster diagnosis and treatment."
+                />
+              </div>
+              <div className="text-center mt-8">
+                <Link to="/direct-primary-care">
+                  <ButtonCustom>
+                    <Stethoscope className="w-5 h-5 mr-2" />
+                    View All Services
+                  </ButtonCustom>
+                </Link>
+              </div>
+            </FadeIn>
+          </div>
+        </section>
+        
+        {/* Team section with improved styling */}
+        <section className="py-16 bg-white">
+          <div className="container-section">
+            <FadeIn>
+              <h2 className="text-3xl font-bold text-center mb-6">Our Healthcare Team</h2>
+              <p className="text-center text-gray-600 max-w-2xl mx-auto mb-12">
+                Meet our dedicated team of healthcare professionals committed to providing you with exceptional care.
+              </p>
               
               <div className="space-y-12">
                 {/* Dr. Carla Neal-Haley */}
@@ -103,13 +156,41 @@ Vonnie and her husband, Brian live in the Atlanta area, have one grown daughter,
             </FadeIn>
           </div>
         </section>
+
+        {/* Add Contact Section to the About page */}
+        <ContactSection />
       </main>
       <Footer />
     </>
   );
 };
 
-// Staff profile component with expandable biography on hover
+// Service Card component for Medical Services section
+interface ServiceCardProps {
+  icon: React.ReactNode;
+  title: string;
+  description: string;
+}
+
+const ServiceCard: React.FC<ServiceCardProps> = ({
+  icon,
+  title,
+  description
+}) => {
+  return (
+    <Card className="hover:shadow-md transition-shadow">
+      <CardContent className="p-6 flex flex-col items-center text-center">
+        <div className="bg-genesis-purple/10 p-4 rounded-full mb-4">
+          {icon}
+        </div>
+        <h3 className="font-bold text-xl mb-2">{title}</h3>
+        <p className="text-gray-600">{description}</p>
+      </CardContent>
+    </Card>
+  );
+};
+
+// Staff profile component with enhanced styling
 interface StaffProfileProps {
   name: string;
   title: string;
@@ -126,7 +207,7 @@ const StaffProfile: React.FC<StaffProfileProps> = ({
   imagePath
 }) => {
   return (
-    <div className="flex flex-col md:flex-row gap-8 items-start bg-white rounded-xl p-6 shadow-sm">
+    <div className="flex flex-col md:flex-row gap-8 items-start bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-all">
       <div className="w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden flex-shrink-0 mx-auto md:mx-0 border-4 border-genesis-purple/20">
         <img 
           src={imagePath} 
@@ -139,14 +220,15 @@ const StaffProfile: React.FC<StaffProfileProps> = ({
         <h3 className="text-2xl font-bold text-gray-900">{name}</h3>
         <p className="text-genesis-purple font-medium mb-4">{title}</p>
         
-        <HoverCard>
+        <HoverCard openDelay={100} closeDelay={200}>
           <HoverCardTrigger asChild>
             <div>
               <p className="text-gray-700">{bio}</p>
-              <p className="text-sm text-genesis-purple mt-2 cursor-pointer hover:underline inline-flex items-center">
+              <div className="flex items-center mt-4 text-sm text-genesis-purple cursor-pointer hover:underline group">
                 <UserCircle className="w-4 h-4 mr-1" />
-                Hover to read more
-              </p>
+                <span>See full bio</span>
+                <span className="ml-1 transition-transform group-hover:translate-x-1">→</span>
+              </div>
             </div>
           </HoverCardTrigger>
           <HoverCardContent className="w-80 md:w-96 p-6 bg-white shadow-xl border border-genesis-purple/10">
@@ -157,6 +239,10 @@ const StaffProfile: React.FC<StaffProfileProps> = ({
               </div>
               <div className="text-gray-700 space-y-2 whitespace-pre-line text-sm">
                 {expandedBio}
+              </div>
+              <div className="pt-2 flex gap-2 items-center text-xs text-gray-500 border-t border-gray-100">
+                <CalendarDays className="w-3 h-3" />
+                <span>Genesis Healthcare team member</span>
               </div>
             </div>
           </HoverCardContent>
