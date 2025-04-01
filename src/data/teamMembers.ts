@@ -53,6 +53,6 @@ Crystal has a unique combination of strong nursing skills and strives to provide
 Vonnie is nationally certified by The American Academy of Nurse Practitioners and licensed to practice in the state of Georgia. She has a special interest in Preventive Health and Wellness, hypertension, diabetes, hematology, rare diseases, and obesity medicine. She strives to maintain a trusting, and caring relationship with her patients that includes making healthcare more equitable and inclusive for people of all sexes, sexual orientations, gender identities, and gender expressions. 
 
 Vonnie and her husband, Brian live in the Atlanta area, have one grown daughter, Emily and a grandog, Violet. In her spare time, she enjoys traveling, cooking, genealogy and history.`,
-    imagePath: "https://images.unsplash.com/photo-1651008376811-b90baee60c1f?q=80&w=1974&auto=format&fit=crop"
+    imagePath: "public/lovable-uploads/73a1b371-397d-4e23-9b62-f0f6823f5a68.png"
   }
 ];
