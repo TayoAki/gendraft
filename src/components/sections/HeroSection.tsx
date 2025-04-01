@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import FadeIn from "../animations/FadeIn";
@@ -35,6 +36,23 @@ const HeroSection = () => {
     return () => {
       api.off("select", handleSelect);
     };
+  }, [api]);
+
+  // Add autoplay functionality
+  React.useEffect(() => {
+    if (!api) return;
+    
+    // Set up automatic slide rotation
+    const autoplayInterval = setInterval(() => {
+      if (api.canScrollNext()) {
+        api.scrollNext();
+      } else {
+        api.scrollTo(0); // Reset to first slide when reaching the end
+      }
+    }, 5000); // Change slide every 5 seconds
+    
+    // Clean up interval on component unmount
+    return () => clearInterval(autoplayInterval);
   }, [api]);
 
   // Handle manual indicator clicks
