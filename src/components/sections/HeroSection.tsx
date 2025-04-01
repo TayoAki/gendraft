@@ -1,5 +1,5 @@
 
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import FadeIn from "../animations/FadeIn";
 import ButtonCustom from "../ui/ButtonCustom";
@@ -42,6 +42,8 @@ const announcements = [
 ];
 
 const HeroSection = () => {
+  const [currentSlide, setCurrentSlide] = useState(0);
+
   return (
     <section className="pt-32 pb-20 relative overflow-hidden bg-gradient-to-b from-white to-gray-50">
       <div className="absolute inset-0 overflow-hidden">
@@ -84,7 +86,10 @@ const HeroSection = () => {
             className="relative order-first md:order-last"
           >
             <div className="p-1 rounded-2xl bg-gradient-to-br from-genesis-purple/20 to-genesis-lightPurple/20">
-              <Carousel className="w-full max-w-xl mx-auto rounded-xl overflow-hidden">
+              <Carousel 
+                className="w-full max-w-xl mx-auto rounded-xl overflow-hidden"
+                onSelect={(index) => setCurrentSlide(index)}
+              >
                 <CarouselContent>
                   {announcements.map((item) => (
                     <CarouselItem key={item.id}>
@@ -126,6 +131,22 @@ const HeroSection = () => {
                 </CarouselContent>
                 <CarouselPrevious className="left-2 bg-white/80 hover:bg-white text-genesis-purple border-none" />
                 <CarouselNext className="right-2 bg-white/80 hover:bg-white text-genesis-purple border-none" />
+                
+                {/* Carousel Indicators */}
+                <div className="flex justify-center gap-2 mt-4 absolute bottom-4 left-0 right-0">
+                  {announcements.map((_, index) => (
+                    <button
+                      key={index}
+                      onClick={() => setCurrentSlide(index)}
+                      className={`h-2 rounded-full transition-all ${
+                        currentSlide === index 
+                        ? "w-6 bg-genesis-purple" 
+                        : "w-2 bg-gray-300 hover:bg-gray-400"
+                      }`}
+                      aria-label={`Go to slide ${index + 1}`}
+                    />
+                  ))}
+                </div>
               </Carousel>
             </div>
           </FadeIn>
