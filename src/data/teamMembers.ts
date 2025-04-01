@@ -31,7 +31,7 @@ She has 3 adult children and has served on the board of the Lovett School and as
     expandedBio: `She has specialized in primary care of adults and children since 2004 working with Dr. Carla Neal-Haley at the Emory Clinic as well as Genesis HCA. She has a special interest in preventative health care and pediatric and adolescent medicine. Prior to that, she cared for adults and children with cancer and blood disorders. 
 
 Christine lives in Marietta, GA with her husband and two children. She is active in the community and serves on the Foundation Board at Kincaid Elementary School. When not at work she enjoys spending time running and relaxing with her family.`,
-    imagePath: "https://images.unsplash.com/photo-1594824476967-48c8b964273f?q=80&w=1974&auto=format&fit=crop"
+    imagePath: "public/lovable-uploads/656f2ed2-ebed-471f-bce2-8ce2282defc9.png"
   },
   {
     id: 3,
