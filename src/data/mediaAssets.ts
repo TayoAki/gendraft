@@ -1,30 +1,55 @@
+
 // Central storage for all media assets used across the site
 
 // Hero section carousel announcements
 export const announcements = [
   {
     id: 1,
-    title: "New Telehealth Services",
-    description: "Connect with our healthcare professionals from the comfort of your home.",
-    image: "/lovable-uploads/53a93b24-c109-459a-92d6-3159910c2b00.png",
-    date: "May 15, 2023",
-    link: "/services/telehealth"
+    title: "National Wear Red Day",
+    description: "Join us in supporting heart health awareness. Wear red and make a difference.",
+    image: "/lovable-uploads/ee3ee1f7-7b27-4400-89e0-2377c129af9b.png",
+    date: "February 2, 2024",
+    link: "/resources/heart-health"
   },
   {
     id: 2,
-    title: "COVID-19 Vaccination Available",
-    description: "Schedule your vaccination appointment today. Walk-ins also welcome.",
-    image: "https://images.unsplash.com/photo-1584634731131-8dd47f35a3a1?q=80&w=1000&auto=format&fit=crop",
-    date: "June 2, 2023",
-    link: "/resources/covid"
+    title: "Be Not Afraid - 5 Years of Changing Lives",
+    description: "Support our liver health foundation. Your donation helps save lives.",
+    image: "/lovable-uploads/06de68b9-cfc2-49ee-a5cb-fadc86f41e9e.png",
+    date: "March 15, 2024",
+    link: "/community/donations"
   },
   {
     id: 3,
-    title: "Mental Health Support Groups",
-    description: "Weekly support groups now available. Join us every Wednesday at 6pm.",
-    image: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=1000&auto=format&fit=crop",
-    date: "April 28, 2023",
-    link: "/services/mental-health"
+    title: "Recommended Readings",
+    description: "Explore our curated list of healthcare resources and literature.",
+    image: "/lovable-uploads/fcea1f6d-afcc-4d6b-9714-de8d3f23c311.png",
+    date: "April 10, 2024",
+    link: "/resources/readings"
+  },
+  {
+    id: 4,
+    title: "Be Not Afraid",
+    description: "Taking steps toward better health starts with overcoming fear.",
+    image: "/lovable-uploads/7d63bb26-50b1-4cf0-9c98-98f68e3dfcf6.png",
+    date: "May 20, 2024",
+    link: "/resources/mental-health"
+  },
+  {
+    id: 5,
+    title: "MUST Smyrna",
+    description: "Our new Smyrna location is now open to serve the community.",
+    image: "/lovable-uploads/0b21a8ea-5e4e-4a7d-8167-7e32ebbeb1d2.png",
+    date: "June 1, 2024",
+    link: "/locations/smyrna"
+  },
+  {
+    id: 6,
+    title: "We're Open Saturdays",
+    description: "Now serving patients on Saturdays from 8:00am to 12:00pm.",
+    image: "/lovable-uploads/c8865c25-1e13-48e0-8915-2f7a694f875a.png",
+    date: "July 5, 2024",
+    link: "/appointments"
   }
 ];
 
