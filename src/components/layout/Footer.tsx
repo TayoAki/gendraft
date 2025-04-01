@@ -1,12 +1,8 @@
-
 import React from "react";
 import { Link } from "react-router-dom";
-
 const Footer = () => {
   const currentYear = new Date().getFullYear();
-  
-  return (
-    <footer className="bg-gray-900 text-white">
+  return <footer className="bg-gray-900 text-white">
       <div className="container-section py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="space-y-4">
@@ -75,7 +71,8 @@ const Footer = () => {
               </li>
               <li className="flex items-start gap-2">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-genesis-blue mt-1"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" /><circle cx="12" cy="10" r="3" /></svg>
-                <span className="text-gray-400">123 Healthcare Ave, Atlanta, GA 30339</span>
+                <span className="text-gray-400">3200 Highlands Pkwy SE
+Smyrna, GA 30082</span>
               </li>
             </ul>
           </div>
@@ -92,8 +89,6 @@ const Footer = () => {
           </div>
         </div>
       </div>
-    </footer>
-  );
+    </footer>;
 };
-
 export default Footer;
