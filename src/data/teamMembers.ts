@@ -41,7 +41,7 @@ Christine lives in Marietta, GA with her husband and two children. She is active
     expandedBio: `Crystal is the recipient of The Emory Medal. This is the highest honor presented to Emory Alumni for outstanding service. Crystal was part of the healthcare team at Emory University Hospital's Serious Health and Communicable Diseases Unit that successfully and safely treated patients with Ebola virus disease in 2014. She was one of the healthcare professionals honored by Time Magazine's "Person of the Year" and acknowledged by President Obama. She received the Emory School of Nursing Excellence in Nursing Award in 2015.
 
 Crystal has a unique combination of strong nursing skills and strives to provide the best health care possible. She believes in building a long lasting and trusting relationship with her patients and families. She strives to acquire a comprehensive evaluation of every patient by taking time to listen and understand their particular needs. Her true desire is to enhance a positive healing experience and confidence to those in need.`,
-    imagePath: "https://images.unsplash.com/photo-1622253692010-333f2da6031d?q=80&w=1964&auto=format&fit=crop"
+    imagePath: "public/lovable-uploads/efdf5911-4bf1-4a56-b8e3-b063e8f83e94.png"
   },
   {
     id: 4,
