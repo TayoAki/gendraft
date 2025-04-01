@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import FadeIn from "../animations/FadeIn";
@@ -60,7 +61,11 @@ const HeroSection = () => {
             <div className="p-1 rounded-2xl bg-gradient-to-br from-genesis-purple/20 to-genesis-lightPurple/20">
               <Carousel 
                 className="w-full max-w-xl mx-auto rounded-xl overflow-hidden"
-                onSelect={(index) => setCurrentSlide(index)}
+                onSelect={(index) => {
+                  if (typeof index === 'number') {
+                    setCurrentSlide(index);
+                  }
+                }}
               >
                 <CarouselContent>
                   {announcements.map((item) => (
