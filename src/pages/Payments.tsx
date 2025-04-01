@@ -7,6 +7,7 @@ import FadeIn from "@/components/animations/FadeIn";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ExternalLink } from "lucide-react";
+import PaymentsBackground from "@/components/backgrounds/PaymentsBackground";
 
 const Payments = () => {
   useEffect(() => {
@@ -19,8 +20,9 @@ const Payments = () => {
       
       <main className="flex-grow pt-32">
         {/* Hero Section */}
-        <section className="bg-gradient-to-b from-genesis-purple/10 to-white py-16">
-          <div className="container-section">
+        <section className="relative bg-gradient-to-b from-genesis-purple/10 to-white py-16">
+          <PaymentsBackground />
+          <div className="container-section relative">
             <div className="max-w-3xl mx-auto text-center">
               <FadeIn>
                 <h1 className="text-4xl md:text-5xl font-bold text-genesis-purple mb-6">Payments</h1>

@@ -7,6 +7,7 @@ import FadeIn from "@/components/animations/FadeIn";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Cannabis, FileText, Info } from "lucide-react";
 import ButtonCustom from "@/components/ui/ButtonCustom";
+import MedicalCannabisBackground from "@/components/backgrounds/MedicalCannabisBackground";
 
 const MedicalCannabis = () => {
   useEffect(() => {
@@ -19,8 +20,9 @@ const MedicalCannabis = () => {
       
       <main className="flex-grow pt-32">
         {/* Hero Section */}
-        <section className="bg-gradient-to-b from-genesis-purple/10 to-white py-16">
-          <div className="container-section">
+        <section className="relative bg-gradient-to-b from-genesis-purple/10 to-white py-16">
+          <MedicalCannabisBackground />
+          <div className="container-section relative">
             <div className="max-w-3xl mx-auto text-center">
               <FadeIn>
                 <h1 className="text-4xl md:text-5xl font-bold text-genesis-purple mb-6">Medical Cannabis</h1>
@@ -202,4 +204,3 @@ const MedicalCannabis = () => {
 };
 
 export default MedicalCannabis;
-

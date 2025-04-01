@@ -7,6 +7,7 @@ import FadeIn from "@/components/animations/FadeIn";
 import ButtonCustom from "@/components/ui/ButtonCustom";
 import { Card, CardContent } from "@/components/ui/card";
 import { GraduationCap, BookOpen, Users, Heart, Calendar } from "lucide-react";
+import NursingBackground from "@/components/backgrounds/NursingBackground";
 
 const NursingClinicals = () => {
   useEffect(() => {
@@ -35,8 +36,9 @@ const NursingClinicals = () => {
       
       <main className="flex-grow pt-32">
         {/* Hero Section */}
-        <section className="bg-gradient-to-b from-genesis-purple/10 to-white py-16">
-          <div className="container-section">
+        <section className="relative bg-gradient-to-b from-genesis-purple/10 to-white py-16">
+          <NursingBackground />
+          <div className="container-section relative">
             <div className="max-w-3xl mx-auto text-center">
               <FadeIn>
                 <h1 className="text-4xl md:text-5xl font-bold text-genesis-purple mb-6">Advanced Practice Nursing Clinicals</h1>
