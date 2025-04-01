@@ -1,17 +1,71 @@
 
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import FadeIn from "@/components/animations/FadeIn";
 import ButtonCustom from "@/components/ui/ButtonCustom";
 import { Card, CardContent } from "@/components/ui/card";
-import { BookOpen, Users, Heart } from "lucide-react";
+import { BookOpen, Users, Heart, Image, ArrowLeft, ArrowRight } from "lucide-react";
+import { 
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselPrevious,
+  CarouselNext
+} from "@/components/ui/carousel";
 
 const Community = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  const communityPhotos = [
+    {
+      id: 1,
+      src: "https://images.unsplash.com/photo-1544027993-37dbfe43562a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+      alt: "Healthcare professionals at community event",
+    },
+    {
+      id: 2,
+      src: "https://images.unsplash.com/photo-1472396961693-142e6e269027?ixlib=rb-4.0.3&auto=format&fit=crop&w=900&q=80",
+      alt: "Nature scene from community outreach",
+    },
+    {
+      id: 3,
+      src: "https://images.unsplash.com/photo-1618160702438-9b02ab6515c9?ixlib=rb-4.0.3&auto=format&fit=crop&w=900&q=80",
+      alt: "Community service with local residents",
+    },
+    {
+      id: 4,
+      src: "https://images.unsplash.com/photo-1721322800607-8c38375eef04?ixlib=rb-4.0.3&auto=format&fit=crop&w=900&q=80",
+      alt: "Educational workshop environment",
+    }
+  ];
+
+  const books = [
+    {
+      id: 1,
+      title: "The Body Keeps the Score",
+      author: "Bessel van der Kolk",
+      description: "Explores how trauma affects the body and mind, and innovative treatments that help patients reclaim their lives.",
+      imageUrl: "https://images.unsplash.com/photo-1541963463532-d68292c34b19?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+    },
+    {
+      id: 2,
+      title: "How Not to Die",
+      author: "Michael Greger, MD",
+      description: "Examines the role diet plays in preventing, treating, and reversing diseases.",
+      imageUrl: "https://images.unsplash.com/photo-1544947950-fa07a98d237f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+    },
+    {
+      id: 3,
+      title: "Being Mortal",
+      author: "Atul Gawande",
+      description: "A thoughtful exploration of aging, death, and the goals of medicine in enhancing life.",
+      imageUrl: "https://images.unsplash.com/photo-1532012197267-da84d127e765?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+    },
+  ];
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -29,6 +83,47 @@ const Community = () => {
                 </p>
               </FadeIn>
             </div>
+          </div>
+        </section>
+        
+        {/* Photo Gallery Section */}
+        <section className="py-16 bg-gray-50">
+          <div className="container-section">
+            <FadeIn>
+              <div className="flex items-center gap-4 mb-8">
+                <Image className="text-genesis-purple" size={28} />
+                <h2 className="text-2xl font-bold text-genesis-purple">
+                  Community Service Gallery
+                </h2>
+              </div>
+              
+              <Card className="overflow-hidden">
+                <CardContent className="p-6">
+                  <Carousel className="w-full">
+                    <CarouselContent>
+                      {communityPhotos.map((photo) => (
+                        <CarouselItem key={photo.id}>
+                          <div className="p-1">
+                            <div className="relative overflow-hidden rounded-lg aspect-[16/9]">
+                              <img 
+                                src={photo.src} 
+                                alt={photo.alt}
+                                className="object-cover w-full h-full" 
+                              />
+                            </div>
+                            <p className="mt-2 text-sm text-center text-gray-600">{photo.alt}</p>
+                          </div>
+                        </CarouselItem>
+                      ))}
+                    </CarouselContent>
+                    <div className="flex justify-end gap-2 mt-4">
+                      <CarouselPrevious className="relative -left-0" />
+                      <CarouselNext className="relative -right-0" />
+                    </div>
+                  </Carousel>
+                </CardContent>
+              </Card>
+            </FadeIn>
           </div>
         </section>
         
@@ -101,30 +196,23 @@ const Community = () => {
                         </div>
                       </div>
                       
-                      <div className="space-y-4 mt-6">
-                        <div className="p-4 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors">
-                          <h3 className="font-semibold text-genesis-purple">The Body Keeps the Score</h3>
-                          <p className="text-gray-600 text-sm">By Bessel van der Kolk</p>
-                          <p className="text-gray-700 mt-2">
-                            Explores how trauma affects the body and mind, and innovative treatments that help patients reclaim their lives.
-                          </p>
-                        </div>
-                        
-                        <div className="p-4 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors">
-                          <h3 className="font-semibold text-genesis-purple">How Not to Die</h3>
-                          <p className="text-gray-600 text-sm">By Michael Greger, MD</p>
-                          <p className="text-gray-700 mt-2">
-                            Examines the role diet plays in preventing, treating, and reversing diseases.
-                          </p>
-                        </div>
-                        
-                        <div className="p-4 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors">
-                          <h3 className="font-semibold text-genesis-purple">Being Mortal</h3>
-                          <p className="text-gray-600 text-sm">By Atul Gawande</p>
-                          <p className="text-gray-700 mt-2">
-                            A thoughtful exploration of aging, death, and the goals of medicine in enhancing life.
-                          </p>
-                        </div>
+                      <div className="grid md:grid-cols-3 gap-6 mt-6">
+                        {books.map((book) => (
+                          <div key={book.id} className="flex flex-col h-full border border-gray-200 rounded-lg overflow-hidden hover:shadow-md transition-shadow">
+                            <div className="h-40 overflow-hidden">
+                              <img 
+                                src={book.imageUrl} 
+                                alt={book.title}
+                                className="w-full h-full object-cover transition-transform hover:scale-105 duration-300" 
+                              />
+                            </div>
+                            <div className="p-4 flex-grow flex flex-col">
+                              <h3 className="font-semibold text-genesis-purple">{book.title}</h3>
+                              <p className="text-gray-600 text-sm mb-2">{book.author}</p>
+                              <p className="text-gray-700 text-sm mt-auto">{book.description}</p>
+                            </div>
+                          </div>
+                        ))}
                       </div>
                     </CardContent>
                   </Card>
