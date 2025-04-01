@@ -32,28 +32,8 @@ const DirectPrimaryCare = () => {
           </div>
         </section>
 
-        {/* Hours Section - Moved to be the second section */}
-        <section className="py-16 bg-white">
-          <div className="container-section">
-            <div className="max-w-3xl mx-auto text-center">
-              <h2 className="text-2xl md:text-3xl font-bold text-genesis-purple mb-6">
-                Availability
-              </h2>
-              <div className="flex items-center justify-center gap-2 mb-4">
-                <Clock className="text-genesis-purple h-6 w-6" />
-                <p className="text-lg text-gray-700">
-                  One hour appointments are available Monday through Friday from 9 a.m. - 4 p.m.
-                </p>
-              </div>
-              <Button className="bg-genesis-purple hover:bg-genesis-lightPurple text-white px-8 py-2 text-lg rounded-md">
-                Schedule an Appointment
-              </Button>
-            </div>
-          </div>
-        </section>
-
         {/* Cost Benefits Section */}
-        <section className="py-16 bg-genesis-purple/5">
+        <section className="py-16 bg-white">
           <div className="container-section">
             <div className="bg-genesis-purple/5 rounded-xl p-8 border border-genesis-purple/20">
               <h2 className="text-2xl md:text-3xl font-bold text-genesis-purple mb-6 text-center">
@@ -168,6 +148,26 @@ const DirectPrimaryCare = () => {
                   <p className="text-white text-center font-medium">{item}</p>
                 </div>
               ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Hours Section */}
+        <section className="py-16 bg-white">
+          <div className="container-section">
+            <div className="max-w-3xl mx-auto text-center">
+              <h2 className="text-2xl md:text-3xl font-bold text-genesis-purple mb-6">
+                Availability
+              </h2>
+              <div className="flex items-center justify-center gap-2 mb-4">
+                <Clock className="text-genesis-purple h-6 w-6" />
+                <p className="text-lg text-gray-700">
+                  One hour appointments are available Monday through Friday from 9 a.m. - 4 p.m.
+                </p>
+              </div>
+              <Button className="bg-genesis-purple hover:bg-genesis-lightPurple text-white px-8 py-2 text-lg rounded-md">
+                Schedule an Appointment
+              </Button>
             </div>
           </div>
         </section>
