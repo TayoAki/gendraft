@@ -65,11 +65,11 @@ const HeroSection = () => {
               Experience personalized care with our team of experts.
             </p>
             <div className="flex flex-wrap gap-4">
-              <Link to="/portal">
+              <a href="https://mycw220.ecwcloud.com/portal26586/jsp/100mp/login_otp.jsp" target="_blank" rel="noopener noreferrer">
                 <ButtonCustom size="lg">
                   Patient Portal Access
                 </ButtonCustom>
-              </Link>
+              </a>
               <Link to="/registration">
                 <ButtonCustom variant="outline" size="lg">
                   New Patient Registration
