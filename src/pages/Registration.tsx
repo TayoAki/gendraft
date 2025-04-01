@@ -7,7 +7,7 @@ import FadeIn from "@/components/animations/FadeIn";
 import ButtonCustom from "@/components/ui/ButtonCustom";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { FileText, Flask, Pill, AlertCircle } from "lucide-react";
+import { FileText, FlaskConical, Pill, AlertCircle } from "lucide-react";
 
 const Registration = () => {
   useEffect(() => {
@@ -104,7 +104,7 @@ const Registration = () => {
                     <div className="space-y-8">
                       <PolicyCard
                         title="Pre-Visit Labs"
-                        icon={<Flask />}
+                        icon={<FlaskConical />}
                         highlight="If your labs are not available at the time of your visit, you may be asked to reschedule or make a lab only follow-up visit."
                       >
                         <p>All patients are required to get their labs in advance for physical and routine follow-up.</p>
