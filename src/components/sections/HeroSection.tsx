@@ -8,7 +8,8 @@ import {
   CarouselContent,
   CarouselItem,
   CarouselPrevious,
-  CarouselNext
+  CarouselNext,
+  type CarouselApi
 } from "../ui/carousel";
 import { Card, CardContent } from "../ui/card";
 import { ArrowRight, Bell, Calendar } from "lucide-react";
@@ -16,6 +17,33 @@ import { announcements } from "@/data";
 
 const HeroSection = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [api, setApi] = useState<CarouselApi>();
+
+  // Add effect to handle slide changes
+  React.useEffect(() => {
+    if (!api) {
+      return;
+    }
+
+    const handleSelect = () => {
+      setCurrentSlide(api.selectedScrollSnap());
+    };
+
+    // Subscribe to change events from the carousel
+    api.on("select", handleSelect);
+    
+    // Cleanup event listener
+    return () => {
+      api.off("select", handleSelect);
+    };
+  }, [api]);
+
+  // Handle manual indicator clicks
+  const goToSlide = React.useCallback((index: number) => {
+    if (api) {
+      api.scrollTo(index);
+    }
+  }, [api]);
 
   return (
     <section className="pt-32 pb-20 relative overflow-hidden bg-gradient-to-b from-white to-gray-50">
@@ -61,11 +89,7 @@ const HeroSection = () => {
             <div className="p-1 rounded-2xl bg-gradient-to-br from-genesis-purple/20 to-genesis-lightPurple/20">
               <Carousel 
                 className="w-full max-w-xl mx-auto rounded-xl overflow-hidden"
-                onSelect={(index) => {
-                  if (typeof index === 'number') {
-                    setCurrentSlide(index);
-                  }
-                }}
+                setApi={setApi}
               >
                 <CarouselContent>
                   {announcements.map((item) => (
@@ -114,7 +138,7 @@ const HeroSection = () => {
                   {announcements.map((_, index) => (
                     <button
                       key={index}
-                      onClick={() => setCurrentSlide(index)}
+                      onClick={() => goToSlide(index)}
                       className={`h-2 rounded-full transition-all ${
                         currentSlide === index 
                         ? "w-6 bg-genesis-purple" 
