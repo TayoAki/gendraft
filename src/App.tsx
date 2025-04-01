@@ -8,6 +8,7 @@ import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import DirectPrimaryCare from "./pages/DirectPrimaryCare";
 import About from "./pages/About";
+import IndexBootstrap from "./pages/IndexBootstrap";
 
 const queryClient = new QueryClient();
 
@@ -19,6 +20,7 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
+          <Route path="/bootstrap" element={<IndexBootstrap />} />
           <Route path="/about" element={<About />} />
           <Route path="/direct-primary-care" element={<DirectPrimaryCare />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
