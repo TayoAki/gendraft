@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Navbar from "@/components/layout/Navbar";
@@ -8,6 +9,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { BookOpen, Users, Heart, Image, ArrowLeft, ArrowRight } from "lucide-react";
 import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from "@/components/ui/carousel";
 import { communityPhotos, communityBooks } from "@/data";
+import CommunityBackground from "@/components/backgrounds/CommunityBackground";
 
 const Community = () => {
   useEffect(() => {
@@ -19,8 +21,9 @@ const Community = () => {
       
       <main className="flex-grow pt-32">
         {/* Hero Section */}
-        <section className="bg-gradient-to-b from-genesis-purple/10 to-white py-16">
-          <div className="container-section">
+        <section className="bg-gradient-to-b from-genesis-purple/10 to-white py-16 relative">
+          <CommunityBackground />
+          <div className="container-section relative z-10">
             <div className="max-w-3xl mx-auto text-center">
               <FadeIn>
                 <h1 className="text-4xl md:text-5xl font-bold text-genesis-purple mb-6">Community Initiatives</h1>
@@ -33,7 +36,30 @@ const Community = () => {
         </section>
         
         {/* Photo Gallery Section */}
-        
+        <section className="py-10">
+          <div className="container-section">
+            <FadeIn>
+              <h2 className="text-2xl font-bold text-genesis-purple mb-8 text-center">Community Gallery</h2>
+              <Carousel className="w-full">
+                <CarouselContent>
+                  {communityPhotos.map(photo => (
+                    <CarouselItem key={photo.id} className="md:basis-1/2 lg:basis-1/3">
+                      <div className="p-2">
+                        <Card className="overflow-hidden">
+                          <CardContent className="p-0">
+                            <img src={photo.src} alt={photo.alt} className="w-full h-56 object-cover transform transition-transform duration-300 hover:scale-105" />
+                          </CardContent>
+                        </Card>
+                      </div>
+                    </CarouselItem>
+                  ))}
+                </CarouselContent>
+                <CarouselPrevious className="left-2" />
+                <CarouselNext className="right-2" />
+              </Carousel>
+            </FadeIn>
+          </div>
+        </section>
         
         {/* Main Content */}
         <section className="py-16">
