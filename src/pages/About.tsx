@@ -1,17 +1,19 @@
+
 import React, { useState } from "react";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import FadeIn from "@/components/animations/FadeIn";
-import { 
-  Popover,
-  PopoverTrigger,
-  PopoverContent 
-} from "@/components/ui/popover";
-import { User, UserCircle, Award, CalendarDays, MapPin, Phone, AlarmClock, HeartPulse, Activity, Brain, Microscope, Stethoscope } from "lucide-react";
+import { UserCircle, Award, CalendarDays, MapPin, Phone, AlarmClock, HeartPulse, Activity, Brain, Microscope, Stethoscope } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import ContactSection from "@/components/sections/ContactSection";
 import ButtonCustom from "@/components/ui/ButtonCustom";
 import { Link } from "react-router-dom";
+import { 
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger
+} from "@/components/ui/accordion";
 
 const About = () => {
   return (
@@ -205,52 +207,54 @@ const StaffProfile: React.FC<StaffProfileProps> = ({
   expandedBio,
   imagePath
 }) => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isExpanded, setIsExpanded] = useState(false);
 
   return (
-    <div className="flex flex-col md:flex-row gap-8 items-start bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-all">
-      <div className="w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden flex-shrink-0 mx-auto md:mx-0 border-4 border-genesis-purple/20">
-        <img 
-          src={imagePath} 
-          alt={name} 
-          className="w-full h-full object-cover object-center"
-        />
+    <div className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-all">
+      <div className="flex flex-col md:flex-row gap-8 items-start">
+        <div className="w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden flex-shrink-0 mx-auto md:mx-0 border-4 border-genesis-purple/20">
+          <img 
+            src={imagePath} 
+            alt={name} 
+            className="w-full h-full object-cover object-center"
+          />
+        </div>
+        
+        <div className="flex-1">
+          <h3 className="text-2xl font-bold text-gray-900">{name}</h3>
+          <p className="text-genesis-purple font-medium mb-4">{title}</p>
+          
+          <p className="text-gray-700">{bio}</p>
+          
+          <button 
+            className="flex items-center mt-4 text-sm text-genesis-purple hover:underline group focus:outline-none focus:ring-2 focus:ring-genesis-purple/40 focus:ring-offset-2 rounded-sm"
+            aria-label={`Read more about ${name}`}
+            onClick={() => setIsExpanded(!isExpanded)}
+          >
+            <UserCircle className="w-4 h-4 mr-1" />
+            <span>{isExpanded ? "See less" : "See full bio"}</span>
+            <span className={`ml-1 transition-transform duration-300 ${isExpanded ? "rotate-90" : ""}`}>→</span>
+          </button>
+        </div>
       </div>
       
-      <div className="flex-1">
-        <h3 className="text-2xl font-bold text-gray-900">{name}</h3>
-        <p className="text-genesis-purple font-medium mb-4">{title}</p>
-        
-        <p className="text-gray-700">{bio}</p>
-        
-        <Popover open={isOpen} onOpenChange={setIsOpen}>
-          <PopoverTrigger asChild>
-            <button 
-              className="flex items-center mt-4 text-sm text-genesis-purple hover:underline group focus:outline-none focus:ring-2 focus:ring-genesis-purple/40 focus:ring-offset-2 rounded-sm"
-              aria-label={`Read more about ${name}`}
-            >
-              <UserCircle className="w-4 h-4 mr-1" />
-              <span>See full bio</span>
-              <span className={`ml-1 transition-transform duration-300 ${isOpen ? 'rotate-90' : ''}`}>→</span>
-            </button>
-          </PopoverTrigger>
-          <PopoverContent className="w-80 md:w-96 p-6 bg-white shadow-xl border border-genesis-purple/10 max-h-[70vh] overflow-y-auto">
-            <div className="space-y-4">
-              <div className="flex gap-2 items-center">
-                <Award className="w-5 h-5 text-genesis-purple" />
-                <h4 className="text-lg font-semibold text-genesis-purple">{name}</h4>
-              </div>
+      {isExpanded && (
+        <div className="mt-6 pt-4 border-t border-gray-100 animate-accordion-down">
+          <div className="flex gap-2 items-start mb-3">
+            <Award className="w-5 h-5 text-genesis-purple flex-shrink-0 mt-1" />
+            <div className="flex-1">
+              <h4 className="text-lg font-semibold text-genesis-purple">Full Biography</h4>
               <div className="text-gray-700 space-y-2 whitespace-pre-line">
                 {expandedBio}
               </div>
-              <div className="pt-2 flex gap-2 items-center text-xs text-gray-500 border-t border-gray-100">
+              <div className="pt-3 flex gap-2 items-center text-xs text-gray-500">
                 <CalendarDays className="w-3 h-3" />
                 <span>Genesis Healthcare team member</span>
               </div>
             </div>
-          </PopoverContent>
-        </Popover>
-      </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
