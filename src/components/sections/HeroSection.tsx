@@ -12,12 +12,21 @@ import {
   type CarouselApi
 } from "../ui/carousel";
 import { Card, CardContent } from "../ui/card";
-import { ArrowRight, Bell, Calendar } from "lucide-react";
+import { ArrowRight, Bell, Info } from "lucide-react";
 import { announcements } from "@/data";
+import {
+  Sheet,
+  SheetContent,
+  SheetDescription,
+  SheetHeader,
+  SheetTitle,
+} from "../ui/sheet";
 
 const HeroSection = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [api, setApi] = useState<CarouselApi>();
+  const [openSheet, setOpenSheet] = useState(false);
+  const [selectedEvent, setSelectedEvent] = useState<typeof announcements[0] | null>(null);
 
   // Add effect to handle slide changes
   React.useEffect(() => {
@@ -61,6 +70,12 @@ const HeroSection = () => {
       api.scrollTo(index);
     }
   }, [api]);
+
+  // Handle event details view
+  const handleViewDetails = (event: typeof announcements[0]) => {
+    setSelectedEvent(event);
+    setOpenSheet(true);
+  };
 
   return (
     <section className="pt-32 pb-20 relative overflow-hidden bg-gradient-to-b from-white to-gray-50">
@@ -125,20 +140,16 @@ const HeroSection = () => {
                                 <Bell className="h-3 w-3 mr-1.5" />
                                 <span>Announcement</span>
                               </div>
-                              <div className="flex items-center text-xs text-white/90 bg-black/30 px-2 py-1 rounded-full">
-                                <Calendar className="h-3 w-3 mr-1" />
-                                <span>{item.date}</span>
-                              </div>
                             </div>
                             <div className="absolute bottom-0 left-0 right-0 p-4 text-white">
                               <h3 className="text-xl font-bold mb-1 leading-tight">{item.title}</h3>
-                              <Link 
-                                to={item.link}
+                              <button 
+                                onClick={() => handleViewDetails(item)}
                                 className="inline-flex items-center text-sm font-medium text-white bg-genesis-purple/80 hover:bg-genesis-purple transition-colors px-3 py-1.5 rounded-full"
                               >
                                 View Details
-                                <ArrowRight className="ml-2 h-3.5 w-3.5" />
-                              </Link>
+                                <Info className="ml-2 h-3.5 w-3.5" />
+                              </button>
                             </div>
                           </div>
                         </CardContent>
@@ -195,6 +206,49 @@ const HeroSection = () => {
           </FadeIn>
         </div>
       </div>
+
+      {/* Event Details Sheet/Pullover */}
+      <Sheet open={openSheet} onOpenChange={setOpenSheet}>
+        <SheetContent className="w-full md:max-w-md overflow-y-auto">
+          {selectedEvent && (
+            <>
+              <SheetHeader className="mb-6">
+                <SheetTitle className="text-2xl font-bold text-genesis-purple">
+                  {selectedEvent.title}
+                </SheetTitle>
+                <p className="text-sm text-gray-500">
+                  {selectedEvent.date}
+                </p>
+              </SheetHeader>
+              
+              <div className="mb-6">
+                <div className="rounded-lg overflow-hidden mb-6">
+                  <img 
+                    src={selectedEvent.image} 
+                    alt={selectedEvent.title}
+                    className="w-full h-48 object-cover"
+                  />
+                </div>
+                
+                <SheetDescription className="text-base text-gray-700 leading-relaxed mb-8">
+                  {selectedEvent.description}
+                </SheetDescription>
+                
+                <div className="mt-6">
+                  <Link 
+                    to={selectedEvent.link} 
+                    className="w-full flex items-center justify-center gap-2 bg-genesis-purple hover:bg-genesis-purple/90 text-white py-3 px-4 rounded-lg font-medium transition-colors"
+                    onClick={() => setOpenSheet(false)}
+                  >
+                    Learn More
+                    <ArrowRight className="h-4 w-4" />
+                  </Link>
+                </div>
+              </div>
+            </>
+          )}
+        </SheetContent>
+      </Sheet>
     </section>
   );
 };
