@@ -6,7 +6,7 @@ import Footer from "@/components/layout/Footer";
 import FadeIn from "@/components/animations/FadeIn";
 import ButtonCustom from "@/components/ui/ButtonCustom";
 import { Card, CardContent } from "@/components/ui/card";
-import { BookOpen, Users, Heart, GraduationCap } from "lucide-react";
+import { BookOpen, Users, Heart } from "lucide-react";
 
 const Community = () => {
   useEffect(() => {
@@ -79,92 +79,6 @@ const Community = () => {
                               We help prepare students for success by providing necessary school supplies in partnership with local organizations.
                             </p>
                           </div>
-                        </div>
-                      </div>
-                    </CardContent>
-                  </Card>
-                </FadeIn>
-                
-                {/* Advanced Practice Nursing Clinicals Section */}
-                <FadeIn delay={50}>
-                  <Card className="mb-8">
-                    <CardContent className="p-8">
-                      <div className="flex items-start gap-4 mb-6">
-                        <GraduationCap className="text-genesis-purple mt-1" size={28} />
-                        <div>
-                          <h2 className="text-2xl font-bold text-genesis-purple mb-3">
-                            Advanced Practice Nursing Clinicals
-                          </h2>
-                          <p className="text-gray-700">
-                            Genesis Healthcare Associates has established a history of supporting Advanced Practice Nurses by offering Clinical Nurses Practicums in a student-designed experience focusing on the role of the professional nurse in a variety of clinical practice specialties.
-                          </p>
-                        </div>
-                      </div>
-                      
-                      <div className="mt-6">
-                        <p className="text-gray-700 mb-4">
-                          These include: Internal medicine, pediatrics, family practice, and women's health. The purpose being to gain knowledge, skills, and attitudes surrounding quality (and safe) patient care. There is a nominal fee for these services.
-                        </p>
-                        
-                        <div className="bg-genesis-purple/5 p-6 rounded-lg border border-genesis-purple/10 mb-6">
-                          <h3 className="font-semibold text-genesis-purple mb-3">About Our Advance Nursing Clinicals</h3>
-                          <p className="text-gray-700 mb-4">
-                            Genesis Healthcare Associates is committed to supporting the professional training and development of nurse practitioner students. We offer a hands-on training experience with a variety of patients and personalized attention in assisting motivated registered nurses in their transition from bedside care to primary care provider.
-                          </p>
-                          <p className="text-gray-700">
-                            All students will have the opportunity to work with all of our providers while under the primary supervision of Dr. Carla Neal-Haley.
-                          </p>
-                        </div>
-                        
-                        <div className="mb-6">
-                          <h3 className="font-semibold text-genesis-purple mb-3">We are currently actively precepting students from the following schools:</h3>
-                          <ul className="list-disc pl-6 space-y-1 text-gray-700">
-                            <li>Emory School of Nursing</li>
-                            <li>Walden University</li>
-                            <li>US University</li>
-                            <li>Medical University of South Carolina Nursing school</li>
-                            <li>Purdue University School of Nursing</li>
-                          </ul>
-                        </div>
-                        
-                        <div className="mb-4">
-                          <h3 className="font-semibold text-genesis-purple mb-3">NURSING STUDENT FORMS</h3>
-                          <ul className="space-y-2">
-                            <li>
-                              <a href="#" className="text-genesis-purple hover:text-genesis-lightPurple flex items-center">
-                                <span className="border-b border-dashed border-genesis-purple">Emergency Contact</span>
-                              </a>
-                            </li>
-                            <li>
-                              <a href="#" className="text-genesis-purple hover:text-genesis-lightPurple flex items-center">
-                                <span className="border-b border-dashed border-genesis-purple">Fee Letter Agreement</span>
-                              </a>
-                            </li>
-                            <li>
-                              <a href="#" className="text-genesis-purple hover:text-genesis-lightPurple flex items-center">
-                                <span className="border-b border-dashed border-genesis-purple">Student Intake Questionnaire</span>
-                              </a>
-                            </li>
-                            <li>
-                              <a href="#" className="text-genesis-purple hover:text-genesis-lightPurple flex items-center">
-                                <span className="border-b border-dashed border-genesis-purple">Student Vaccination Immunization</span>
-                              </a>
-                            </li>
-                            <li>
-                              <a href="#" className="text-genesis-purple hover:text-genesis-lightPurple flex items-center">
-                                <span className="border-b border-dashed border-genesis-purple">Welcome Student Letter</span>
-                              </a>
-                            </li>
-                          </ul>
-                        </div>
-                        
-                        <div className="bg-genesis-purple/10 p-4 rounded-lg border border-genesis-purple/20 text-center mt-6">
-                          <p className="text-gray-700 mb-2">
-                            Interested students can contact us for further information:
-                          </p>
-                          <a href="mailto:GenesisNPstudent@gmail.com" className="text-genesis-purple font-medium hover:text-genesis-lightPurple">
-                            GenesisNPstudent@gmail.com
-                          </a>
                         </div>
                       </div>
                     </CardContent>
