@@ -1,4 +1,3 @@
-
 // Central storage for all media assets used across the site
 
 // Hero section carousel announcements
@@ -73,3 +72,9 @@ export const dpcDifferences = [
   "Dedicated DPC phone line and staff", 
   "Elimination of in-office insurance mandated fee collection (co-pay and deductible)"
 ];
+
+// Update the mediaAssets object to include the logo
+export const brandAssets = {
+  logo: "/lovable-uploads/eb1482a5-582d-4228-9df7-5a2ac2ce6bea.png",
+  // Add other brand assets here as needed
+};

@@ -55,11 +55,12 @@ const Navbar = () => {
       >
         <div className="container-section flex justify-between items-center py-3">
           <Link to="/" className="flex items-center gap-2 z-20">
-            <div className="w-10 h-10 md:w-12 md:h-12 relative flex-shrink-0">
-              <svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
-                <circle cx="30" cy="30" r="28" fill="#4f4183" />
-                <path d="M30,15 L30,45 M20,25 L40,25 M20,35 L40,35" stroke="white" strokeWidth="3" strokeLinecap="round" />
-              </svg>
+            <div className="w-12 h-12 md:w-14 md:h-14 relative flex-shrink-0">
+              <img 
+                src="/lovable-uploads/eb1482a5-582d-4228-9df7-5a2ac2ce6bea.png" 
+                alt="Genesis Healthcare Logo" 
+                className="w-full h-full object-contain"
+              />
             </div>
             <div className="flex flex-col">
               <span className="text-genesis-purple font-bold text-lg md:text-xl leading-tight">GENESIS</span>
