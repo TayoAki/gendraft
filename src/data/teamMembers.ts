@@ -21,7 +21,7 @@ export const teamMembers: TeamMember[] = [
 She served as Clinical Instructor of Pediatrics and Internal Medicine at Children's Hospital of Michigan and Wayne State University before moving to Atlanta in 1997.
 
 She has 3 adult children and has served on the board of the Lovett School and as the Chief of staff at Emory Adventist Hospital. She currently holds an adjunct professor title at several Universities associated with her clinical teaching responsibilities for Medical and Nurse Practitioner students.`,
-    imagePath: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?q=80&w=2070&auto=format&fit=crop"
+    imagePath: "public/lovable-uploads/2c8bb872-5cdc-4751-ae27-b17ba3be4171.png"
   },
   {
     id: 2,
