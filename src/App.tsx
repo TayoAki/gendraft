@@ -10,6 +10,7 @@ import DirectPrimaryCare from "./pages/DirectPrimaryCare";
 import About from "./pages/About";
 import IndexBootstrap from "./pages/IndexBootstrap";
 import MedicalCannabis from "./pages/MedicalCannabis";
+import Registration from "./pages/Registration";
 
 const queryClient = new QueryClient();
 
@@ -25,6 +26,7 @@ const App = () => (
           <Route path="/about" element={<About />} />
           <Route path="/direct-primary-care" element={<DirectPrimaryCare />} />
           <Route path="/medical-cannabis" element={<MedicalCannabis />} />
+          <Route path="/registration" element={<Registration />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

@@ -76,90 +76,98 @@ const MedicalCannabis = () => {
               
               {/* Main Content */}
               <div className="md:col-span-2 space-y-10">
-                <FadeIn id="policy" className="scroll-mt-32">
-                  <h2 className="text-2xl font-bold mb-4 text-genesis-purple">Office Policy and Procedures</h2>
-                  <Card>
-                    <CardContent className="p-6">
-                      <p className="text-gray-700">
-                        Our medical cannabis program follows strict guidelines as mandated by the State of Georgia. 
-                        Our healthcare providers are trained and certified to evaluate patients for eligibility 
-                        based on qualifying conditions. We maintain a professional approach to ensure 
-                        all legal and medical requirements are properly met.
-                      </p>
-                    </CardContent>
-                  </Card>
-                </FadeIn>
+                <div id="policy" className="scroll-mt-32">
+                  <FadeIn>
+                    <h2 className="text-2xl font-bold mb-4 text-genesis-purple">Office Policy and Procedures</h2>
+                    <Card>
+                      <CardContent className="p-6">
+                        <p className="text-gray-700">
+                          Our medical cannabis program follows strict guidelines as mandated by the State of Georgia. 
+                          Our healthcare providers are trained and certified to evaluate patients for eligibility 
+                          based on qualifying conditions. We maintain a professional approach to ensure 
+                          all legal and medical requirements are properly met.
+                        </p>
+                      </CardContent>
+                    </Card>
+                  </FadeIn>
+                </div>
                 
-                <FadeIn id="records" className="scroll-mt-32">
-                  <h2 className="text-2xl font-bold mb-4 text-genesis-purple">Medical Records</h2>
-                  <Card>
-                    <CardContent className="p-6">
-                      <p className="text-gray-700 mb-4">
-                        A minimum of 2 years medical records documenting your qualifying disease is required. 
-                        Your records must be from a licensed physician that has treated or is currently treating 
-                        you for the qualifying disease.
-                      </p>
-                      <p className="text-gray-700 mb-4">
-                        Your records must be sent to our office no less than 5 days prior to your appointment. 
-                        This gives our Providers time to review and prepare for your visit.
-                      </p>
-                      <p className="font-medium text-genesis-purple">
-                        If your records have not been received, we will have to cancel your appointment. 
-                        No exceptions can be made.
-                      </p>
-                    </CardContent>
-                  </Card>
-                </FadeIn>
+                <div id="records" className="scroll-mt-32">
+                  <FadeIn>
+                    <h2 className="text-2xl font-bold mb-4 text-genesis-purple">Medical Records</h2>
+                    <Card>
+                      <CardContent className="p-6">
+                        <p className="text-gray-700 mb-4">
+                          A minimum of 2 years medical records documenting your qualifying disease is required. 
+                          Your records must be from a licensed physician that has treated or is currently treating 
+                          you for the qualifying disease.
+                        </p>
+                        <p className="text-gray-700 mb-4">
+                          Your records must be sent to our office no less than 5 days prior to your appointment. 
+                          This gives our Providers time to review and prepare for your visit.
+                        </p>
+                        <p className="font-medium text-genesis-purple">
+                          If your records have not been received, we will have to cancel your appointment. 
+                          No exceptions can be made.
+                        </p>
+                      </CardContent>
+                    </Card>
+                  </FadeIn>
+                </div>
                 
-                <FadeIn id="insurance" className="scroll-mt-32">
-                  <h2 className="text-2xl font-bold mb-4 text-genesis-purple">Insurance Information</h2>
-                  <Card>
-                    <CardContent className="p-6">
-                      <p className="text-gray-700 mb-4">
-                        The services we provide are not covered by your insurance and full payment is due 
-                        at the time of service. We will not file your insurance for any services relating 
-                        to Medical Cannabis Treatment.
-                      </p>
-                      <p className="text-gray-700">
-                        You will be given a waiver form to sign that acknowledges your understanding of this policy.
-                      </p>
-                    </CardContent>
-                  </Card>
-                </FadeIn>
+                <div id="insurance" className="scroll-mt-32">
+                  <FadeIn>
+                    <h2 className="text-2xl font-bold mb-4 text-genesis-purple">Insurance Information</h2>
+                    <Card>
+                      <CardContent className="p-6">
+                        <p className="text-gray-700 mb-4">
+                          The services we provide are not covered by your insurance and full payment is due 
+                          at the time of service. We will not file your insurance for any services relating 
+                          to Medical Cannabis Treatment.
+                        </p>
+                        <p className="text-gray-700">
+                          You will be given a waiver form to sign that acknowledges your understanding of this policy.
+                        </p>
+                      </CardContent>
+                    </Card>
+                  </FadeIn>
+                </div>
                 
-                <FadeIn id="eligibility" className="scroll-mt-32">
-                  <h2 className="text-2xl font-bold mb-4 text-genesis-purple">Important Information About Medical Cannabis Certification</h2>
-                  <Card>
-                    <CardContent className="p-6">
-                      <p className="text-gray-700 mb-6">
-                        Our providers will do an initial assessment of your condition to see if you are eligible 
-                        for treatment with the Medical Cannabis oil. If you qualify, we must register you with 
-                        the State of Georgia. This registration is required by law. Please keep in mind that 
-                        not all persons will qualify for the program.
-                      </p>
-                      
-                      <h3 className="text-xl font-bold mb-4">Who May Apply</h3>
-                      <p className="text-gray-700 mb-4">
-                        There are three categories of persons who may apply for the card:
-                      </p>
-                      
-                      <ol className="list-decimal pl-6 space-y-3 text-gray-700">
-                        <li>
-                          An adult (age 18+) who has one or more of the diseases specified in the law, 
-                          and who is a resident of the State of Georgia;
-                        </li>
-                        <li>
-                          Legal guardians of an adult who has one or more of the diseases specified in the law, 
-                          and who is a resident of the State of Georgia;
-                        </li>
-                        <li>
-                          Parents or legal guardians of a minor child who has one or more of the diseases 
-                          specified in the law, and is a resident of Georgia or was born in Georgia.
-                        </li>
-                      </ol>
-                    </CardContent>
-                  </Card>
-                </FadeIn>
+                <div id="eligibility" className="scroll-mt-32">
+                  <FadeIn>
+                    <h2 className="text-2xl font-bold mb-4 text-genesis-purple">Important Information About Medical Cannabis Certification</h2>
+                    <Card>
+                      <CardContent className="p-6">
+                        <p className="text-gray-700 mb-6">
+                          Our providers will do an initial assessment of your condition to see if you are eligible 
+                          for treatment with the Medical Cannabis oil. If you qualify, we must register you with 
+                          the State of Georgia. This registration is required by law. Please keep in mind that 
+                          not all persons will qualify for the program.
+                        </p>
+                        
+                        <h3 className="text-xl font-bold mb-4">Who May Apply</h3>
+                        <p className="text-gray-700 mb-4">
+                          There are three categories of persons who may apply for the card:
+                        </p>
+                        
+                        <ol className="list-decimal pl-6 space-y-3 text-gray-700">
+                          <li>
+                            An adult (age 18+) who has one or more of the diseases specified in the law, 
+                            and who is a resident of the State of Georgia;
+                          </li>
+                          <li>
+                            Legal guardians of an adult who has one or more of the diseases specified in the law, 
+                            and who is a resident of the State of Georgia;
+                          </li>
+                          <li>
+                            Parents or legal guardians of a minor child who has one or more of the diseases 
+                            specified in the law, and is a resident of Georgia or was born in Georgia.
+                          </li>
+                        </ol>
+                      </CardContent>
+                    </Card>
+                  </FadeIn>
+                </div>
                 
                 <FadeIn>
                   <div className="bg-genesis-purple/10 rounded-lg p-6 border border-genesis-purple/20">
@@ -194,3 +202,4 @@ const MedicalCannabis = () => {
 };
 
 export default MedicalCannabis;
+
