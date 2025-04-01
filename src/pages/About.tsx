@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import FadeIn from "@/components/animations/FadeIn";
-import { UserCircle, Award, CalendarDays, MapPin, Phone, AlarmClock, HeartPulse, Activity, Brain, Microscope, Stethoscope } from "lucide-react";
+import { UserCircle, Award, CalendarDays, MapPin, Phone, AlarmClock, HeartPulse, Activity, Brain, Microscope, Stethoscope, ShieldCheck, Syringe } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import ContactSection from "@/components/sections/ContactSection";
 import ButtonCustom from "@/components/ui/ButtonCustom";
@@ -14,6 +14,7 @@ import {
   AccordionTrigger
 } from "@/components/ui/accordion";
 import { teamMembers } from "@/data";
+import AboutHeroBackground from "@/components/backgrounds/AboutHeroBackground";
 
 const About = () => {
   return (
@@ -22,10 +23,7 @@ const About = () => {
       <main className="pt-32">
         {/* Hero section */}
         <section className="relative overflow-hidden bg-gradient-to-b from-white to-gray-50">
-          <div className="absolute inset-0 overflow-hidden">
-            <div className="absolute -top-40 -right-40 w-80 h-80 bg-genesis-purple/5 rounded-full blur-3xl"></div>
-            <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-genesis-lightPurple/5 rounded-full blur-3xl"></div>
-          </div>
+          <AboutHeroBackground />
           
           <div className="container-section relative py-16">
             <FadeIn className="text-center max-w-3xl mx-auto">
