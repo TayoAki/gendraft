@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { CheckCircle, Clock, Video } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { dpcServices, dpcDifferences } from "@/data";
+import DirectPrimaryCareBackground from "@/components/backgrounds/DirectPrimaryCareBackground";
 
 const DirectPrimaryCare = () => {
   useEffect(() => {
@@ -17,8 +18,9 @@ const DirectPrimaryCare = () => {
       
       <main className="flex-grow pt-32">
         {/* Hero Section */}
-        <section className="bg-gradient-to-b from-white to-gray-50 py-16">
-          <div className="container-section">
+        <section className="bg-gradient-to-b from-white to-gray-50 py-16 relative">
+          <DirectPrimaryCareBackground />
+          <div className="container-section relative z-10">
             <div className="max-w-3xl mx-auto text-center mb-12">
               <h1 className="text-3xl md:text-4xl font-bold text-genesis-purple mb-4">
                 Take advantage of Direct Primary Care!
