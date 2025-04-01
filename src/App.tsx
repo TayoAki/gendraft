@@ -13,6 +13,7 @@ import MedicalCannabis from "./pages/MedicalCannabis";
 import Registration from "./pages/Registration";
 import Community from "./pages/Community";
 import NursingClinicals from "./pages/NursingClinicals";
+import Payments from "./pages/Payments";
 
 const queryClient = new QueryClient();
 
@@ -31,6 +32,7 @@ const App = () => (
           <Route path="/registration" element={<Registration />} />
           <Route path="/community" element={<Community />} />
           <Route path="/nursing" element={<NursingClinicals />} />
+          <Route path="/payments" element={<Payments />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
