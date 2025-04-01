@@ -119,7 +119,7 @@ const HeroSection = () => {
                               alt={item.title}
                               className="object-cover w-full h-full transition-transform duration-500 hover:scale-105"
                             />
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
                             <div className="absolute top-4 left-4 flex items-center space-x-2">
                               <div className="flex items-center text-xs font-medium text-white/90 bg-genesis-purple/80 px-3 py-1 rounded-full">
                                 <Bell className="h-3 w-3 mr-1.5" />
@@ -130,15 +130,14 @@ const HeroSection = () => {
                                 <span>{item.date}</span>
                               </div>
                             </div>
-                            <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
-                              <h3 className="text-xl font-bold mb-2 leading-tight">{item.title}</h3>
-                              <p className="mb-4 text-sm text-gray-200 line-clamp-2">{item.description}</p>
+                            <div className="absolute bottom-0 left-0 right-0 p-4 text-white">
+                              <h3 className="text-xl font-bold mb-1 leading-tight">{item.title}</h3>
                               <Link 
                                 to={item.link}
-                                className="inline-flex items-center text-sm font-medium text-white bg-genesis-purple/80 hover:bg-genesis-purple transition-colors px-4 py-2 rounded-full"
+                                className="inline-flex items-center text-sm font-medium text-white bg-genesis-purple/80 hover:bg-genesis-purple transition-colors px-3 py-1.5 rounded-full"
                               >
                                 View Details
-                                <ArrowRight className="ml-2 h-4 w-4" />
+                                <ArrowRight className="ml-2 h-3.5 w-3.5" />
                               </Link>
                             </div>
                           </div>
