@@ -7,46 +7,13 @@ import ButtonCustom from "@/components/ui/ButtonCustom";
 import { Card, CardContent } from "@/components/ui/card";
 import { BookOpen, Users, Heart, Image, ArrowLeft, ArrowRight } from "lucide-react";
 import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from "@/components/ui/carousel";
+import { communityPhotos, communityBooks } from "@/data";
+
 const Community = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-  const communityPhotos = [{
-    id: 1,
-    src: "https://images.unsplash.com/photo-1544027993-37dbfe43562a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
-    alt: "Healthcare professionals at community event"
-  }, {
-    id: 2,
-    src: "https://images.unsplash.com/photo-1472396961693-142e6e269027?ixlib=rb-4.0.3&auto=format&fit=crop&w=900&q=80",
-    alt: "Nature scene from community outreach"
-  }, {
-    id: 3,
-    src: "https://images.unsplash.com/photo-1618160702438-9b02ab6515c9?ixlib=rb-4.0.3&auto=format&fit=crop&w=900&q=80",
-    alt: "Community service with local residents"
-  }, {
-    id: 4,
-    src: "https://images.unsplash.com/photo-1721322800607-8c38375eef04?ixlib=rb-4.0.3&auto=format&fit=crop&w=900&q=80",
-    alt: "Educational workshop environment"
-  }];
-  const books = [{
-    id: 1,
-    title: "The Body Keeps the Score",
-    author: "Bessel van der Kolk",
-    description: "Explores how trauma affects the body and mind, and innovative treatments that help patients reclaim their lives.",
-    imageUrl: "https://images.unsplash.com/photo-1541963463532-d68292c34b19?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
-  }, {
-    id: 2,
-    title: "How Not to Die",
-    author: "Michael Greger, MD",
-    description: "Examines the role diet plays in preventing, treating, and reversing diseases.",
-    imageUrl: "https://images.unsplash.com/photo-1544947950-fa07a98d237f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
-  }, {
-    id: 3,
-    title: "Being Mortal",
-    author: "Atul Gawande",
-    description: "A thoughtful exploration of aging, death, and the goals of medicine in enhancing life.",
-    imageUrl: "https://images.unsplash.com/photo-1532012197267-da84d127e765?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
-  }];
+  
   return <div className="min-h-screen flex flex-col">
       <Navbar />
       
@@ -93,7 +60,7 @@ const Community = () => {
                       </div>
                       
                       <div className="mt-6">
-                        <img src="https://images.unsplash.com/photo-1544027993-37dbfe43562a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Community Partnership" className="w-full h-64 object-cover rounded-lg mb-4" />
+                        <img src={communityPhotos[0].src} alt={communityPhotos[0].alt} className="w-full h-64 object-cover rounded-lg mb-4" />
                         <div className="grid md:grid-cols-2 gap-4 mt-6">
                           <div className="bg-genesis-purple/5 p-4 rounded-lg border border-genesis-purple/10">
                             <h3 className="font-semibold text-genesis-purple mb-2">
@@ -134,7 +101,8 @@ const Community = () => {
                       </div>
                       
                       <div className="grid md:grid-cols-3 gap-6 mt-6">
-                        {books.map(book => <div key={book.id} className="flex flex-col h-full border border-gray-200 rounded-lg overflow-hidden hover:shadow-md transition-shadow">
+                        {communityBooks.map(book => (
+                          <div key={book.id} className="flex flex-col h-full border border-gray-200 rounded-lg overflow-hidden hover:shadow-md transition-shadow">
                             <div className="h-40 overflow-hidden">
                               <img src={book.imageUrl} alt={book.title} className="w-full h-full object-cover transition-transform hover:scale-105 duration-300" />
                             </div>
@@ -143,7 +111,8 @@ const Community = () => {
                               <p className="text-gray-600 text-sm mb-2">{book.author}</p>
                               <p className="text-gray-700 text-sm mt-auto">{book.description}</p>
                             </div>
-                          </div>)}
+                          </div>
+                        ))}
                       </div>
                     </CardContent>
                   </Card>
@@ -220,4 +189,5 @@ const Community = () => {
       <Footer />
     </div>;
 };
+
 export default Community;

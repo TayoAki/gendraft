@@ -1,13 +1,17 @@
+
 import React, { useEffect } from "react";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import { Button } from "@/components/ui/button";
 import { CheckCircle, Clock, Video } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
+import { dpcServices, dpcDifferences } from "@/data";
+
 const DirectPrimaryCare = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+  
   return <div className="min-h-screen flex flex-col">
       <Navbar />
       
@@ -116,14 +120,16 @@ const DirectPrimaryCare = () => {
               Services included in Direct Primary Care plan:
             </h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {services.map((service, index) => <Card key={index} className="border border-gray-200 hover:shadow-md transition-shadow hover:border-genesis-purple/20">
+              {dpcServices.map((service, index) => (
+                <Card key={index} className="border border-gray-200 hover:shadow-md transition-shadow hover:border-genesis-purple/20">
                   <CardContent className="p-6">
                     <div className="flex items-start gap-3">
                       <CheckCircle className="text-genesis-purple h-6 w-6 flex-shrink-0 mt-1" />
                       <p className="text-gray-700">{service}</p>
                     </div>
                   </CardContent>
-                </Card>)}
+                </Card>
+              ))}
             </div>
           </div>
         </section>
@@ -135,9 +141,11 @@ const DirectPrimaryCare = () => {
               Experience the difference:
             </h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-4xl mx-auto">
-              {differences.map((item, index) => <div key={index} className="bg-white/10 p-6 rounded-lg backdrop-blur-sm hover:bg-white/20 transition-colors">
+              {dpcDifferences.map((item, index) => (
+                <div key={index} className="bg-white/10 p-6 rounded-lg backdrop-blur-sm hover:bg-white/20 transition-colors">
                   <p className="text-white text-center font-medium">{item}</p>
-                </div>)}
+                </div>
+              ))}
             </div>
           </div>
         </section>
@@ -167,9 +175,4 @@ const DirectPrimaryCare = () => {
     </div>;
 };
 
-// Services included in DPC
-const services = ["Comprehensive annual physical exams.", "Simple wound care.", "No co-pay for office visits.", "Chronic disease management, adjusting treatments and providing continuous patient and caregiver support.", "Basic in-office procedures and tests at no extra cost.", "On-demand telemedicine consultations, as needed.", "Same or next-day urgent care appointments.", "Mental health and wellness recommendations.", "Direct communication with her DPC team via a dedicated phone line or text / email via the Healow portal."];
-
-// Experience the difference items
-const differences = ["Membership-based personalized care", "More provider time", "Dedicated DPC phone line and staff", "Elimination of in-office insurance mandated fee collection (co-pay and deductible)"];
 export default DirectPrimaryCare;

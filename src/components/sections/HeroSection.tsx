@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import FadeIn from "../animations/FadeIn";
@@ -12,34 +11,7 @@ import {
 } from "../ui/carousel";
 import { Card, CardContent } from "../ui/card";
 import { ArrowRight, Bell, Calendar } from "lucide-react";
-
-// Announcements items for the carousel
-const announcements = [
-  {
-    id: 1,
-    title: "New Telehealth Services",
-    description: "Connect with our healthcare professionals from the comfort of your home.",
-    image: "/lovable-uploads/53a93b24-c109-459a-92d6-3159910c2b00.png",
-    date: "May 15, 2023",
-    link: "/services/telehealth"
-  },
-  {
-    id: 2,
-    title: "COVID-19 Vaccination Available",
-    description: "Schedule your vaccination appointment today. Walk-ins also welcome.",
-    image: "https://images.unsplash.com/photo-1584634731131-8dd47f35a3a1?q=80&w=1000&auto=format&fit=crop",
-    date: "June 2, 2023",
-    link: "/resources/covid"
-  },
-  {
-    id: 3,
-    title: "Mental Health Support Groups",
-    description: "Weekly support groups now available. Join us every Wednesday at 6pm.",
-    image: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=1000&auto=format&fit=crop",
-    date: "April 28, 2023",
-    link: "/services/mental-health"
-  }
-];
+import { announcements } from "@/data";
 
 const HeroSection = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
