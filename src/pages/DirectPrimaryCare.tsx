@@ -28,12 +28,54 @@ const DirectPrimaryCare = () => {
               <p className="text-lg text-gray-700 mb-8">
                 Genesis Healthcare Associates is now offering Direct Primary Care (DPC) to continue the quality, accessible care we are known for.
               </p>
+              <div className="mt-6">
+                <Button className="bg-genesis-purple hover:bg-genesis-lightPurple text-white px-8 py-2 text-lg rounded-md">
+                  Enroll Now
+                </Button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Experience the Difference Section - Moved up for impact */}
+        <section className="py-16 bg-genesis-purple text-white">
+          <div className="container-section">
+            <h2 className="text-2xl md:text-3xl font-bold mb-8 text-center">
+              Experience the difference:
+            </h2>
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-4xl mx-auto">
+              {dpcDifferences.map((item, index) => (
+                <div key={index} className="bg-white/10 p-6 rounded-lg backdrop-blur-sm hover:bg-white/20 transition-colors">
+                  <p className="text-white text-center font-medium">{item}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Services Section - Moved up as a key selling point */}
+        <section className="py-16 bg-white">
+          <div className="container-section">
+            <h2 className="text-2xl md:text-3xl font-bold text-genesis-purple mb-8 text-center">
+              Services included in Direct Primary Care plan:
+            </h2>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {dpcServices.map((service, index) => (
+                <Card key={index} className="border border-gray-200 hover:shadow-md transition-shadow hover:border-genesis-purple/20">
+                  <CardContent className="p-6">
+                    <div className="flex items-start gap-3">
+                      <CheckCircle className="text-genesis-purple h-6 w-6 flex-shrink-0 mt-1" />
+                      <p className="text-gray-700">{service}</p>
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
             </div>
           </div>
         </section>
 
         {/* Cost Benefits Section */}
-        <section className="py-16 bg-white">
+        <section className="py-16 bg-gray-50">
           <div className="container-section">
             <div className="bg-genesis-purple/5 rounded-xl p-8 border border-genesis-purple/20">
               <h2 className="text-2xl md:text-3xl font-bold text-genesis-purple mb-6 text-center">
@@ -43,6 +85,29 @@ const DirectPrimaryCare = () => {
                 By focusing on preventative care and reducing the need for specialist and emergency services, 
                 this model can lead to lower overall healthcare costs for patients over time.
               </p>
+            </div>
+          </div>
+        </section>
+
+        {/* Enrollment Section - Positioned strategically after benefits */}
+        <section className="py-16 bg-white">
+          <div className="container-section">
+            <div className="max-w-4xl mx-auto text-center">
+              <h2 className="text-2xl md:text-3xl font-bold text-genesis-purple mb-6">
+                Enroll in DPC today!
+              </h2>
+              <p className="text-lg text-gray-700 mb-8">
+                Existing Genesis Healthcare patients can enroll in this novel program.
+              </p>
+              <div className="bg-genesis-purple/5 rounded-xl p-8 border border-genesis-purple/20 mb-8">
+                <div className="space-y-4 mb-6">
+                  <p className="text-xl font-semibold text-genesis-purple">Individual rates: starting at $199/month</p>
+                  <p className="text-lg text-gray-700">Discounted family plans and discounted annual payment options available</p>
+                </div>
+                <Button className="bg-genesis-purple hover:bg-genesis-lightPurple text-white px-8 py-2 text-lg rounded-md">
+                  Enroll Now
+                </Button>
+              </div>
             </div>
           </div>
         </section>
@@ -66,30 +131,27 @@ const DirectPrimaryCare = () => {
           </div>
         </section>
 
-        {/* Enrollment Section */}
+        {/* Hours Section */}
         <section className="py-16 bg-white">
           <div className="container-section">
-            <div className="max-w-4xl mx-auto text-center">
+            <div className="max-w-3xl mx-auto text-center">
               <h2 className="text-2xl md:text-3xl font-bold text-genesis-purple mb-6">
-                Enroll in DPC today!
+                Availability
               </h2>
-              <p className="text-lg text-gray-700 mb-8">
-                Existing Genesis Healthcare patients can enroll in this novel program.
-              </p>
-              <div className="bg-genesis-purple/5 rounded-xl p-8 border border-genesis-purple/20 mb-8">
-                <div className="space-y-4 mb-6">
-                  <p className="text-xl font-semibold text-genesis-purple">Individual rates: starting at $199/month</p>
-                  <p className="text-lg text-gray-700">Discounted family plans and discounted annual payment options available</p>
-                </div>
-                <Button className="bg-genesis-purple hover:bg-genesis-lightPurple text-white px-8 py-2 text-lg rounded-md">
-                  Enroll Now
-                </Button>
+              <div className="flex items-center justify-center gap-2 mb-4">
+                <Clock className="text-genesis-purple h-6 w-6" />
+                <p className="text-lg text-gray-700">
+                  One hour appointments are available Monday through Friday from 9 a.m. - 4 p.m.
+                </p>
               </div>
+              <Button className="bg-genesis-purple hover:bg-genesis-lightPurple text-white px-8 py-2 text-lg rounded-md">
+                Schedule an Appointment
+              </Button>
             </div>
           </div>
         </section>
 
-        {/* Video Section */}
+        {/* Video Section - Placed near the end as supporting content */}
         <section className="py-16 bg-gray-50">
           <div className="container-section">
             <div className="max-w-3xl mx-auto text-center">
@@ -111,63 +173,6 @@ const DirectPrimaryCare = () => {
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Services Section */}
-        <section className="py-16 bg-white">
-          <div className="container-section">
-            <h2 className="text-2xl md:text-3xl font-bold text-genesis-purple mb-8 text-center">
-              Services included in Direct Primary Care plan:
-            </h2>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {dpcServices.map((service, index) => (
-                <Card key={index} className="border border-gray-200 hover:shadow-md transition-shadow hover:border-genesis-purple/20">
-                  <CardContent className="p-6">
-                    <div className="flex items-start gap-3">
-                      <CheckCircle className="text-genesis-purple h-6 w-6 flex-shrink-0 mt-1" />
-                      <p className="text-gray-700">{service}</p>
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Experience the Difference Section */}
-        <section className="py-16 bg-genesis-purple text-white">
-          <div className="container-section">
-            <h2 className="text-2xl md:text-3xl font-bold mb-8 text-center">
-              Experience the difference:
-            </h2>
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-4xl mx-auto">
-              {dpcDifferences.map((item, index) => (
-                <div key={index} className="bg-white/10 p-6 rounded-lg backdrop-blur-sm hover:bg-white/20 transition-colors">
-                  <p className="text-white text-center font-medium">{item}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Hours Section */}
-        <section className="py-16 bg-white">
-          <div className="container-section">
-            <div className="max-w-3xl mx-auto text-center">
-              <h2 className="text-2xl md:text-3xl font-bold text-genesis-purple mb-6">
-                Availability
-              </h2>
-              <div className="flex items-center justify-center gap-2 mb-4">
-                <Clock className="text-genesis-purple h-6 w-6" />
-                <p className="text-lg text-gray-700">
-                  One hour appointments are available Monday through Friday from 9 a.m. - 4 p.m.
-                </p>
-              </div>
-              <Button className="bg-genesis-purple hover:bg-genesis-lightPurple text-white px-8 py-2 text-lg rounded-md">
-                Schedule an Appointment
-              </Button>
             </div>
           </div>
         </section>
