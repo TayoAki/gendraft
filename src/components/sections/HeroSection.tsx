@@ -48,23 +48,45 @@ const HeroSection = () => {
   return (
     <section className="pt-32 pb-20 relative overflow-hidden bg-gradient-to-b from-white to-gray-50">
       <div className="absolute inset-0 overflow-hidden">
-        {/* Background elements */}
         <div className="absolute -top-40 -right-40 w-80 h-80 bg-genesis-purple/5 rounded-full blur-3xl"></div>
         <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-genesis-lightPurple/5 rounded-full blur-3xl"></div>
         
-        {/* Moving circular elements */}
-        <div className="absolute top-20 left-[10%] w-16 h-16 bg-genesis-purple/10 rounded-full animate-float-slow"></div>
-        <div className="absolute top-40 right-[15%] w-20 h-20 bg-genesis-lightPurple/10 rounded-full animate-float-medium"></div>
-        <div className="absolute bottom-32 left-[25%] w-12 h-12 bg-genesis-purple/15 rounded-full animate-float-fast"></div>
-        
-        {/* Moving blob elements */}
-        <div className="absolute top-1/3 right-[20%] w-32 h-32 bg-gradient-to-br from-genesis-purple/10 to-genesis-lightPurple/5 rounded-[40%_60%_70%_30%] animate-blob-slow"></div>
-        <div className="absolute bottom-1/4 left-[10%] w-40 h-40 bg-gradient-to-tr from-genesis-lightPurple/10 to-genesis-purple/5 rounded-[60%_40%_30%_70%] animate-blob-medium"></div>
-        
-        {/* Small floating particles */}
-        <div className="absolute top-1/4 left-1/3 w-3 h-3 bg-genesis-purple/20 rounded-full animate-particle-1"></div>
-        <div className="absolute top-2/3 right-1/4 w-2 h-2 bg-genesis-lightPurple/30 rounded-full animate-particle-2"></div>
-        <div className="absolute bottom-1/3 left-1/2 w-4 h-4 bg-genesis-purple/15 rounded-full animate-particle-3"></div>
+        {/* Smiling faces in the background */}
+        <div className="absolute top-20 left-[10%] w-14 h-14 rounded-full overflow-hidden opacity-40 shadow-lg transform rotate-3">
+          <img 
+            src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=200&q=80" 
+            alt="Smiling person" 
+            className="object-cover w-full h-full"
+          />
+        </div>
+        <div className="absolute top-40 right-[15%] w-16 h-16 rounded-full overflow-hidden opacity-30 shadow-lg transform -rotate-6">
+          <img 
+            src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&q=80" 
+            alt="Smiling person" 
+            className="object-cover w-full h-full"
+          />
+        </div>
+        <div className="absolute bottom-20 left-[20%] w-20 h-20 rounded-full overflow-hidden opacity-25 shadow-lg transform rotate-12">
+          <img 
+            src="https://images.unsplash.com/photo-1601412436009-d964bd02edbc?w=200&q=80" 
+            alt="Smiling person" 
+            className="object-cover w-full h-full"
+          />
+        </div>
+        <div className="absolute bottom-40 right-[25%] w-18 h-18 rounded-full overflow-hidden opacity-20 shadow-lg transform -rotate-6">
+          <img 
+            src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=200&q=80" 
+            alt="Smiling person" 
+            className="object-cover w-full h-full"
+          />
+        </div>
+        <div className="absolute top-1/2 left-[30%] w-12 h-12 rounded-full overflow-hidden opacity-30 shadow-lg transform rotate-6">
+          <img 
+            src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=200&q=80" 
+            alt="Smiling person" 
+            className="object-cover w-full h-full"
+          />
+        </div>
       </div>
       
       <div className="container-section relative">

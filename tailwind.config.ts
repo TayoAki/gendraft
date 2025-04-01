@@ -90,57 +90,6 @@ export default {
           "0%": { opacity: "0", transform: "translateX(-20px)" },
           "100%": { opacity: "1", transform: "translateX(0)" },
         },
-        // New keyframes for background animations
-        "float-slow": {
-          "0%, 100%": { transform: "translateY(0) translateX(0)" },
-          "50%": { transform: "translateY(-20px) translateX(10px)" },
-        },
-        "float-medium": {
-          "0%, 100%": { transform: "translateY(0) translateX(0)" },
-          "50%": { transform: "translateY(15px) translateX(-15px)" },
-        },
-        "float-fast": {
-          "0%, 100%": { transform: "translateY(0) translateX(0)" },
-          "50%": { transform: "translateY(-10px) translateX(-10px)" },
-        },
-        "blob-slow": {
-          "0%, 100%": { 
-            borderRadius: "40% 60% 70% 30%",
-            transform: "rotate(0deg) translateY(0) translateX(0)"
-          },
-          "50%": { 
-            borderRadius: "60% 40% 30% 70%", 
-            transform: "rotate(45deg) translateY(-20px) translateX(15px)"
-          },
-        },
-        "blob-medium": {
-          "0%, 100%": { 
-            borderRadius: "60% 40% 30% 70%",
-            transform: "rotate(0deg) translateY(0) translateX(0)"
-          },
-          "50%": { 
-            borderRadius: "40% 60% 70% 30%", 
-            transform: "rotate(-45deg) translateY(15px) translateX(-15px)"
-          },
-        },
-        "particle-1": {
-          "0%, 100%": { transform: "translateY(0) translateX(0)" },
-          "25%": { transform: "translateY(-30px) translateX(15px)" },
-          "50%": { transform: "translateY(-15px) translateX(30px)" },
-          "75%": { transform: "translateY(15px) translateX(15px)" },
-        },
-        "particle-2": {
-          "0%, 100%": { transform: "translateY(0) translateX(0)" },
-          "25%": { transform: "translateY(20px) translateX(-20px)" },
-          "50%": { transform: "translateY(40px) translateX(0px)" },
-          "75%": { transform: "translateY(20px) translateX(20px)" },
-        },
-        "particle-3": {
-          "0%, 100%": { transform: "translateY(0) translateX(0)" },
-          "25%": { transform: "translateY(-25px) translateX(-25px)" },
-          "50%": { transform: "translateY(-50px) translateX(0px)" },
-          "75%": { transform: "translateY(-25px) translateX(25px)" },
-        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -148,15 +97,6 @@ export default {
         "fade-in": "fade-in 0.6s ease-out",
         "fade-in-right": "fade-in-right 0.6s ease-out",
         "fade-in-left": "fade-in-left 0.6s ease-out",
-        // New animations
-        "float-slow": "float-slow 10s ease-in-out infinite",
-        "float-medium": "float-medium 8s ease-in-out infinite",
-        "float-fast": "float-fast 6s ease-in-out infinite",
-        "blob-slow": "blob-slow 15s ease-in-out infinite",
-        "blob-medium": "blob-medium 12s ease-in-out infinite",
-        "particle-1": "particle-1 20s ease-in-out infinite",
-        "particle-2": "particle-2 18s ease-in-out infinite", 
-        "particle-3": "particle-3 16s ease-in-out infinite",
       },
       fontFamily: {
         sans: ["Inter", "system-ui", "sans-serif"],
