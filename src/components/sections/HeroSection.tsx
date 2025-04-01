@@ -50,43 +50,6 @@ const HeroSection = () => {
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute -top-40 -right-40 w-80 h-80 bg-genesis-purple/5 rounded-full blur-3xl"></div>
         <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-genesis-lightPurple/5 rounded-full blur-3xl"></div>
-        
-        {/* Smiling faces in the background */}
-        <div className="absolute top-20 left-[10%] w-14 h-14 rounded-full overflow-hidden opacity-40 shadow-lg transform rotate-3">
-          <img 
-            src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=200&q=80" 
-            alt="Smiling person" 
-            className="object-cover w-full h-full"
-          />
-        </div>
-        <div className="absolute top-40 right-[15%] w-16 h-16 rounded-full overflow-hidden opacity-30 shadow-lg transform -rotate-6">
-          <img 
-            src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&q=80" 
-            alt="Smiling person" 
-            className="object-cover w-full h-full"
-          />
-        </div>
-        <div className="absolute bottom-20 left-[20%] w-20 h-20 rounded-full overflow-hidden opacity-25 shadow-lg transform rotate-12">
-          <img 
-            src="https://images.unsplash.com/photo-1601412436009-d964bd02edbc?w=200&q=80" 
-            alt="Smiling person" 
-            className="object-cover w-full h-full"
-          />
-        </div>
-        <div className="absolute bottom-40 right-[25%] w-18 h-18 rounded-full overflow-hidden opacity-20 shadow-lg transform -rotate-6">
-          <img 
-            src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=200&q=80" 
-            alt="Smiling person" 
-            className="object-cover w-full h-full"
-          />
-        </div>
-        <div className="absolute top-1/2 left-[30%] w-12 h-12 rounded-full overflow-hidden opacity-30 shadow-lg transform rotate-6">
-          <img 
-            src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=200&q=80" 
-            alt="Smiling person" 
-            className="object-cover w-full h-full"
-          />
-        </div>
       </div>
       
       <div className="container-section relative">
